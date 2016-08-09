@@ -12,3 +12,7 @@ var currentPlayer = playerData.findOne({
 }); // search the collection data for the entry with the same id as the player
 
 Spark.setScriptData("playerGold", currentPlayer.playerGold); // return the player via script-data
+
+
+
+// bla-bla bla
