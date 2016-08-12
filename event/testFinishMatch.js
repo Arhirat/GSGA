@@ -1,35 +1,30 @@
-var playerDataList = Spark.runtimeCollection("playerData");
-var playerID = Spark.getPlayer().getPlayerId();
-var playerData = playerDataList.findOne({"playerID": playerID}); 
-var win = Spark.getData().win;
+require("SparkHelper")
+require("Model")
 
-if(playerData == null)
-{
+
+
+var playerID = getPlayerID();
+var playerData = getPlayerData(playerID);
+var event = getEvent();
+var win = event.win;
+if (playerData == null) {
     throw "playerData == null";
 }
-
-if(playerData.startedMatch == null)
-{
+if (playerData.startedMatch == null) {
     throw "playerData.startedMatch == null";
 }
-
 var startedMatch = playerData.startedMatch;
 var blue = startedMatch.playerIDBlue == playerID;
-
-if(win == 1)
-{
-    startedMatch.state = blue ? "winBlue" : "winRed";
+if (win == 1) {
+    startedMatch.state = blue ? StartetMatchState.WinBlue : StartetMatchState.WinRed;
 }
-else
-{
-    startedMatch.state = blue ? "winRed" : "winBlue";
+else {
+    startedMatch.state = blue ? StartetMatchState.WinRed : StartetMatchState.WinBlue;
 }
-
 startedMatch.changeWinnerRes1 = 10;
 startedMatch.changeWinnerRes2 = 10;
 startedMatch.changeWinnerHonor = 10;
 startedMatch.changeLoserRes1 = -10;
 startedMatch.changeLoserRes2 = -10;
 startedMatch.changeLoserHonor = -10;
-
-playerDataList.update({"playerID": playerID}, {"$set": playerData}, true, false);
+save(playerData);
