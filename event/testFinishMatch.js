@@ -1,3 +1,4 @@
+"use strict";
 require("SparkHelper")
 require("Model")
 

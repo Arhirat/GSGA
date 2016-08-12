@@ -1,3 +1,5 @@
+"use strict";
+var exports = {};
 
 (function (StartetMatchState) {
     StartetMatchState[StartetMatchState["InProgress"] = 1] = "InProgress";
