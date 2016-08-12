@@ -20,7 +20,13 @@ var startedMatch = {
     seed: seed,
     playerIDRed: blue == 1 ? playerID : opponentPlayerID,
     playerIDBlue: blue == 1 ? opponentPlayerID : playerID,
-    state: StartetMatchState.InProgress
+    state: StartedMatchState.InProgress,
+    changeWinnerRes1: 0,
+    changeWinnerRes2: 0,
+    changeWinnerHonor: 0,
+    changeLoserRes1: 0,
+    changeLoserRes2: 0,
+    changeLoserHonor: 0
 };
 playerData.startedMatch = startedMatch;
 save(playerData);

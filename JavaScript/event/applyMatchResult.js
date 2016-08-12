@@ -12,13 +12,12 @@ if (playerData == null) {
 if (playerData.startedMatch == null) {
     throw "playerData.startedMatch == null";
 }
-if (playerData.startedMatch.state != StartetMatchState.WinBlue && playerData.startedMatch.state != StartetMatchState.WinRed) {
+if (playerData.startedMatch.state != StartedMatchState.WinBlue && playerData.startedMatch.state != StartedMatchState.WinRed) {
     throw "playerData.startedMatch.state != StartetMatchState.WinBlue && playerData.startedMatch.state != StartetMatchState.WinRed";
 }
 var startedMatch = playerData.startedMatch;
-var blue = startedMatch.playerIDBlue == playerID;
-var win = (playerData.startedMatch.state != StartetMatchState.WinBlue && startedMatch.playerIDBlue == playerID) ||
-    (playerData.startedMatch.state != StartetMatchState.WinRed && startedMatch.playerIDRed == playerID);
+var win = (playerData.startedMatch.state != StartedMatchState.WinBlue && startedMatch.playerIDBlue == playerID) ||
+    (playerData.startedMatch.state != StartedMatchState.WinRed && startedMatch.playerIDRed == playerID);
 if (win) {
     playerData.honor += startedMatch.changeWinnerHonor;
 }

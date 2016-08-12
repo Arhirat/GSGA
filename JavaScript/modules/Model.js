@@ -1,12 +1,17 @@
 "use strict";
 var exports = {};
 
-(function (StartetMatchState) {
-    StartetMatchState[StartetMatchState["InProgress"] = 1] = "InProgress";
-    StartetMatchState[StartetMatchState["WinBlue"] = 2] = "WinBlue";
-    StartetMatchState[StartetMatchState["WinRed"] = 3] = "WinRed";
-})(exports.StartetMatchState || (exports.StartetMatchState = {}));
-var StartetMatchState = exports.StartetMatchState;
+(function (StartedMatchState) {
+    StartedMatchState[StartedMatchState["InProgress"] = 1] = "InProgress";
+    StartedMatchState[StartedMatchState["WinBlue"] = 2] = "WinBlue";
+    StartedMatchState[StartedMatchState["WinRed"] = 3] = "WinRed";
+})(exports.StartedMatchState || (exports.StartedMatchState = {}));
+var StartedMatchState = exports.StartedMatchState;
+(function (TeamType) {
+    TeamType[TeamType["Blue"] = 1] = "Blue";
+    TeamType[TeamType["Red"] = 2] = "Red";
+})(exports.TeamType || (exports.TeamType = {}));
+var TeamType = exports.TeamType;
 function getDefaultPlayerData(playerID) {
     return {
         playerID: playerID,
