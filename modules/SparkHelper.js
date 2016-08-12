@@ -10,7 +10,7 @@ exports.getPlayerID = getPlayerID;
 function getPlayerData(playerID) {
     
         var playerDataList = Spark.runtimeCollection("playerData");
-        return playerData.findOne({"playerID": playerID});
+        return playerDataList.findOne({"playerID": playerID});
     
 }
 exports.getPlayerData = getPlayerData;
@@ -23,7 +23,7 @@ function save(playerData) {
 exports.save = save;
 function getEvent() {
     
-        return Spark.getData().gold;
+        return Spark.getData();
     
 }
 exports.getEvent = getEvent;
