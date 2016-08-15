@@ -15,28 +15,5 @@ if (playerData.startedMatch.state == Model_1.StartedMatchState.WinBlue || player
     throw "# Match already finished";
 }
 var startedMatch = playerData.startedMatch;
-startedMatch.state = winnerTeam == Model_1.TeamType.Blue ? Model_1.StartedMatchState.WinBlue : Model_1.StartedMatchState.WinRed;
-startedMatch.changeWinnerRes1 = 10;
-startedMatch.changeWinnerRes2 = 10;
-startedMatch.changeWinnerHonor = 10;
-startedMatch.changeLoserRes1 = -10;
-startedMatch.changeLoserRes2 = -10;
-startedMatch.changeLoserHonor = -10;
-var playerIDBlue = playerData.startedMatch.playerIDBlue;
-var playerIDRed = playerData.startedMatch.playerIDRed;
-var playerDataBlue = SparkHelper_1.getPlayerData(playerIDBlue);
-var playerDataRed = SparkHelper_1.getPlayerData(playerIDRed);
-playerDataBlue.startedMatch = startedMatch;
-playerDataRed.startedMatch = startedMatch;
-SparkHelper_1.save(playerDataBlue);
-SparkHelper_1.save(playerDataRed);
-var messageBlue = {
-    messageType: "MatchFinishedMessage",
-    playerData: playerDataBlue
-};
-SparkHelper_1.sendMessage(messageBlue, playerIDBlue);
-var messageRed = {
-    messageType: "MatchFinishedMessage",
-    playerData: playerDataRed
-};
-SparkHelper_1.sendMessage(messageRed, playerIDRed);
+Model_1.setStartedMatchWinner(startedMatch, winnerTeam);
+SparkHelper_1.saveStartedMatch(startedMatch);

@@ -26,3 +26,13 @@ function getDefaultPlayerData(playerID) {
     };
 }
 exports.getDefaultPlayerData = getDefaultPlayerData;
+function setStartedMatchWinner(startedMatch, winnerTeam) {
+    startedMatch.state = winnerTeam == TeamType.Blue ? StartedMatchState.WinBlue : StartedMatchState.WinRed;
+    startedMatch.changeWinnerRes1 = 10;
+    startedMatch.changeWinnerRes2 = 10;
+    startedMatch.changeWinnerHonor = 10;
+    startedMatch.changeLoserRes1 = -10;
+    startedMatch.changeLoserRes2 = -10;
+    startedMatch.changeLoserHonor = -10;
+}
+exports.setStartedMatchWinner = setStartedMatchWinner;

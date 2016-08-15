@@ -79,3 +79,32 @@ function loadMatch(matchID) {
     */
 }
 exports.loadMatch = loadMatch;
+function playerIsOnline(playerID) {
+    //TypeScriptCode
+    throw "Заглушка";
+    /*SparkCode
+        return Spark.loadPlayer(playerId).isOnline();
+    */
+}
+exports.playerIsOnline = playerIsOnline;
+function saveStartedMatch(startedMatch) {
+    var playerIDBlue = startedMatch.playerIDBlue;
+    var playerIDRed = startedMatch.playerIDRed;
+    var playerDataBlue = getPlayerData(playerIDBlue);
+    var playerDataRed = getPlayerData(playerIDRed);
+    playerDataBlue.startedMatch = startedMatch;
+    playerDataRed.startedMatch = startedMatch;
+    save(playerDataBlue);
+    save(playerDataRed);
+    var messageBlue = {
+        messageType: "MatchFinishedMessage",
+        playerData: playerDataBlue
+    };
+    sendMessage(messageBlue, playerIDBlue);
+    var messageRed = {
+        messageType: "MatchFinishedMessage",
+        playerData: playerDataRed
+    };
+    sendMessage(messageRed, playerIDRed);
+}
+exports.saveStartedMatch = saveStartedMatch;

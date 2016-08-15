@@ -1,5 +1,5 @@
 
-import {PlayerData, MatchInfo} from "./Model";
+import {MatchFinishedMessage, StartedMatch, PlayerData, MatchInfo} from "./Model";
 
 
 export function getPlayerID(): string
@@ -90,12 +90,44 @@ export function loadMatch(matchID: string): MatchInfo
 */
 }
 
+export function playerIsOnline(playerID: string): boolean
+{
+//TypeScriptCode
+	throw "Заглушка";
+/*SparkCode
+	return Spark.loadPlayer(playerId).isOnline();
+*/
+}
 
 
 
+export function saveStartedMatch(startedMatch: StartedMatch)
+{
+	var playerIDBlue = startedMatch.playerIDBlue;
+	var playerIDRed = startedMatch.playerIDRed;
+	var playerDataBlue = getPlayerData(playerIDBlue);
+	var playerDataRed= getPlayerData(playerIDRed);
+	
+	playerDataBlue.startedMatch = startedMatch; 
+	playerDataRed.startedMatch = startedMatch; 
+	
+	save(playerDataBlue);
+	save(playerDataRed);
+	
+	var messageBlue : MatchFinishedMessage = 
+	{
+		messageType: "MatchFinishedMessage",
+		playerData: playerDataBlue,
+	};
+	sendMessage(messageBlue, playerIDBlue);
+	
+	var messageRed: MatchFinishedMessage = 
+	{
+		messageType: "MatchFinishedMessage",
+		playerData: playerDataRed,
+	};
+	sendMessage(messageRed, playerIDRed);
 
-
-
-
+}
 
 

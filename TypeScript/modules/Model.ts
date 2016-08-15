@@ -134,3 +134,15 @@ export function getDefaultPlayerData(playerID: string): PlayerData
 		startedMatch: null
     };
 }
+
+export function setStartedMatchWinner(startedMatch: StartedMatch, winnerTeam: TeamType)
+{
+	startedMatch.state = winnerTeam == TeamType.Blue ? StartedMatchState.WinBlue : StartedMatchState.WinRed; 
+	startedMatch.changeWinnerRes1 = 10;
+	startedMatch.changeWinnerRes2 = 10;
+	startedMatch.changeWinnerHonor = 10;
+	startedMatch.changeLoserRes1 = -10;
+	startedMatch.changeLoserRes2 = -10;
+	startedMatch.changeLoserHonor = -10;
+}
+
