@@ -11,6 +11,9 @@ if (playerData == null) {
 if (playerData.startedMatch == null) {
     throw "playerData.startedMatch == null";
 }
+if (playerData.startedMatch.state == Model_1.StartedMatchState.WinBlue || playerData.startedMatch.state == Model_1.StartedMatchState.WinRed) {
+    throw "# Match already finished";
+}
 var startedMatch = playerData.startedMatch;
 startedMatch.state = winnerTeam == Model_1.TeamType.Blue ? Model_1.StartedMatchState.WinBlue : Model_1.StartedMatchState.WinRed;
 startedMatch.changeWinnerRes1 = 10;

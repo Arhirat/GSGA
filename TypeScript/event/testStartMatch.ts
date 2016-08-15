@@ -34,6 +34,7 @@ var blue = getRandomInt(0, 2);
 
 var startedMatch : StartedMatch = 
 {
+	matchID: "undef",
     seed: seed,
 	playerIDRed: blue == 1 ? playerID1 : playerID2,
 	playerIDBlue: blue == 1 ? playerID2 : playerID1,

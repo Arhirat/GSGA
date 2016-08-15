@@ -19,6 +19,11 @@ if(playerData.startedMatch == null)
     throw "playerData.startedMatch == null";
 }
 
+if(playerData.startedMatch.state == StartedMatchState.WinBlue || playerData.startedMatch.state == StartedMatchState.WinRed)
+{
+	throw "# Match already finished";
+}
+
 var startedMatch = playerData.startedMatch;
 
 startedMatch.state = winnerTeam == TeamType.Blue ? StartedMatchState.WinBlue : StartedMatchState.WinRed; 
@@ -28,7 +33,6 @@ startedMatch.changeWinnerHonor = 10;
 startedMatch.changeLoserRes1 = -10;
 startedMatch.changeLoserRes2 = -10;
 startedMatch.changeLoserHonor = -10;
-
 
 var playerIDBlue = playerData.startedMatch.playerIDBlue;
 var playerIDRed = playerData.startedMatch.playerIDRed;
@@ -48,13 +52,9 @@ var messageBlue : MatchFinishedMessage =
 };
 sendMessage(messageBlue, playerIDBlue);
 
-
 var messageRed: MatchFinishedMessage = 
 {
 	messageType: "MatchFinishedMessage",
 	playerData: playerDataRed,
 };
 sendMessage(messageRed, playerIDRed);
-
-
-

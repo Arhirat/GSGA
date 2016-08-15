@@ -14,6 +14,9 @@ if (playerData == null) {
 if (playerData.startedMatch == null) {
     throw "playerData.startedMatch == null";
 }
+if (playerData.startedMatch.state == StartedMatchState.WinBlue || playerData.startedMatch.state == StartedMatchState.WinRed) {
+    throw "# Match already finished";
+}
 var startedMatch = playerData.startedMatch;
 startedMatch.state = winnerTeam == TeamType.Blue ? StartedMatchState.WinBlue : StartedMatchState.WinRed;
 startedMatch.changeWinnerRes1 = 10;

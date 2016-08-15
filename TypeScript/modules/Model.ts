@@ -1,4 +1,5 @@
 
+// --------- ENUM --------------
 export enum StartedMatchState
 {
 	InProgress = 1,
@@ -13,8 +14,11 @@ export enum TeamType
 }
 
 
+
+// --------- INTERFACE --------------
 export interface StartedMatch
 {
+	matchID: string,
 	seed: number,
 	playerIDRed: string,
 	playerIDBlue: string,
@@ -27,7 +31,6 @@ export interface StartedMatch
 	changeLoserHonor: number,
 }
 
-
 export interface PlayerData
 {
 	playerID: string,
@@ -37,21 +40,27 @@ export interface PlayerData
 	startedMatch: StartedMatch
 }
 
-export function getDefaultPlayerData(playerID: string): PlayerData 
+export interface ParticipantInfo
 {
-    return {
-		playerID: playerID,
-        honor: 100,
-		league: 1,
-		division: 1,
-		startedMatch: null
-    };
+	playerID: string,
+}
+
+export interface MatchInfo
+{
+	matchID: string,
+	participantList: ParticipantInfo[], 
 }
 
 
 
 
 
+
+
+
+
+
+// --------- EVENT --------------
 export interface TestFinishMatchEvent
 {
 	win: number
@@ -59,6 +68,11 @@ export interface TestFinishMatchEvent
 export interface TestStartMatchEvent
 {
 	opponentPlayerID: string,
+}
+
+export interface StartMatchEvent
+{
+	matchID: string,
 }
 
 export interface SendMatchDataEvent
@@ -74,6 +88,11 @@ export interface FinishMatchEvent
 
 
 
+
+
+
+
+// --------- MESSAGE --------------
 export interface MatchDataMessage
 {
 	messageType: string,
@@ -93,32 +112,25 @@ export interface MatchFinishedMessage
 }
 
 
+
+
+
+
+
+
+// --------- FUNCTION --------------
 export function getRandomInt(min: number, max:number): number
 {
 	return Math.floor(Math.random() * (max - min)) + min; 
 }
 
-/*
-
-
-function load()
+export function getDefaultPlayerData(playerID: string): PlayerData 
 {
-    var playerDataList = Spark.runtimeCollection("playerData");
-    var playerID = Spark.getPlayer().getPlayerId();
-    var playerData = playerDataList.findOne({"playerID": playerID}); 
-    
-    var result =  
-    {
-        playerID: playerID,
-        playerData: playerData,
+    return {
+		playerID: playerID,
+        honor: 100,
+		league: 1,
+		division: 1,
+		startedMatch: null
     };
-    
-    return result;
 }
-
-function save(record)
-{
-    var playerDataList = Spark.runtimeCollection("playerData");
-    playerDataList.update({"playerID": record.playerID}, {"$set": record.playerData}, true, false);
-}
-*/

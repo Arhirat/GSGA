@@ -21,6 +21,7 @@ if (playerData2.startedMatch != null) {
 var seed = Model_1.getRandomInt(0, 10000);
 var blue = Model_1.getRandomInt(0, 2);
 var startedMatch = {
+    matchID: "undef",
     seed: seed,
     playerIDRed: blue == 1 ? playerID1 : playerID2,
     playerIDBlue: blue == 1 ? playerID2 : playerID1,
