@@ -41,3 +41,11 @@ function sendMessage(data, playerID) {
     */
 }
 exports.sendMessage = sendMessage;
+function setScriptData(variable, data) {
+    //TypeScriptCode
+    throw "Заглушка";
+    /*SparkCode
+        Spark.setScriptData(variable, data);
+    */
+}
+exports.setScriptData = setScriptData;

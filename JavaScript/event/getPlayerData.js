@@ -1,11 +1,13 @@
+"use strict";
+require("SparkHelper")
 require("Model")
 
-var record = load();
 
-if(record.playerData == null)
-{
-    record.playerData = getDefaultPlayerData();
-    save(record);
+
+var playerID = getPlayerID();
+var playerData = getDefaultPlayerData(playerID);
+if (playerData == null) {
+    playerData = getDefaultPlayerData(playerID);
+    save(playerData);
 }
-
-Spark.setScriptData("playerData", record.playerData);
+setScriptData("playerData", playerData);

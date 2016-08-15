@@ -12,33 +12,33 @@ noDo = return ()
 
 moduleInitFinder :: PatternFinder (String, String)
 moduleInitFinder = do 
-	findString "var"
-	findSpace 
-	m <- findWord isAvailable
- 	findString "require"
-	findString "\""
-	path <- findWord isPath 
-	findString ";"
+	findPattern "var"
+	nextWord spaceChar 
+	m <- nextWord variableChar
+ 	findPattern "require"
+	findPattern "\""
+	path <- nextWord pathChar 
+	findPattern ";"
 	return (m, path)
 	
 
 moduleUseStrictFinder :: PatternFinder ()
 moduleUseStrictFinder = do 
-	findString "\"use strict\";"
+	findPattern "\"use strict\";"
 	noDo
 
 
 moduleUsageFinder :: String -> PatternFinder ()
 moduleUsageFinder n = do 
-	findString n
-	findString "."
+	findPattern n
+	findPattern "."
 	noDo
 	
 codeUsageFinder :: PatternFinder String
 codeUsageFinder = do 
-	findString "//TypeScriptCode"
-	findString "/*SparkCode"
-	code <- findString "*/"
+	findPattern "//TypeScriptCode"
+	findPattern "/*SparkCode"
+	code <- findPattern "*/"
 	return code
 
 
@@ -58,7 +58,7 @@ parser moduleList isModule = do
 
 
 removeExt :: String -> String -> String
-removeExt e s = case runPatternFinder (findString e) s of 
+removeExt e s = case runPatternFinder (findPattern e) s of 
 	Nothing -> s
 	Just (a, b, _) -> a ++ b
 

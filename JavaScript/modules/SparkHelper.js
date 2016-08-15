@@ -33,3 +33,9 @@ function sendMessage(data, playerID) {
     
 }
 exports.sendMessage = sendMessage;
+function setScriptData(variable, data) {
+    
+        Spark.setScriptData(variable, data);
+    
+}
+exports.setScriptData = setScriptData;

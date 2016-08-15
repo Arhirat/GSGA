@@ -50,3 +50,11 @@ export function sendMessage<T>(data: T, playerID: string)
 */
 }
 
+export function setScriptData<T>(variable: string, data: T)
+{
+//TypeScriptCode
+	throw "Заглушка";
+/*SparkCode
+	Spark.setScriptData(variable, data);
+*/
+}

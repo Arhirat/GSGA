@@ -1,11 +1,11 @@
 
 module PatternFinder (
 	PatternFinder(runPatternFinder), 
-	findString, 
-	findSpace, 
-	findWord, 
-	isPath, 
-	isAvailable, 
+	findPattern, 
+	nextWord, 
+	spaceChar, 
+	pathChar, 
+	variableChar, 
 	Parser, 
 	doWhile, 
 	replace, 
@@ -46,29 +46,42 @@ findSubstring p s = case compareString p s of
 			Just (a, b) -> Just (h:a, b)
  
 
-findString :: String -> PatternFinder String  
-findString p = PatternFinder $ \s -> case findSubstring p s of 
+findPattern :: String -> PatternFinder String  
+findPattern p = PatternFinder $ \s -> case findSubstring p s of 
 	Nothing -> Nothing
   	Just (a, b) -> Just (a, b, a) 
 
 
-findSpace :: PatternFinder ()  
-findSpace = PatternFinder $ \s -> if head s == ' ' 
-	then case runPatternFinder findSpace (tail s) of 
-		Nothing -> undefined
-		Just (_, b, _) -> Just ([], b, ())
-	else Just ([], s, ())
+type CharFilter = Char -> Bool
 
-isPath :: Char -> Bool 
-isPath c = or [isAvailable c, c == '.', c == '/', c == '_'] 
+unionChar :: [CharFilter] -> CharFilter
+unionChar list = fmap or $ sequence list
+  
+spaceChar :: CharFilter
+spaceChar c = c == ' ' 
 
-isAvailable :: Char -> Bool 
-isAvailable c = or [and [c >= 'a', c <= 'z'], and [c >= 'A', c <= 'Z'], and [c >= '0', c <= '9'], c == '_'] 
+anyChar :: [Char] -> CharFilter 
+anyChar = flip elem  
+
+pathChar :: CharFilter 
+pathChar = unionChar [variableChar, anyChar "./"] 
+
+rangeChar :: Char -> Char -> CharFilter
+rangeChar c1 c2 c = and [c >= c1, c <= c2]
+ 
+numberChar :: CharFilter 
+numberChar = rangeChar '0' '9' 
+
+alphabetChar :: CharFilter 
+alphabetChar = unionChar [rangeChar 'a' 'z', rangeChar 'A' 'Z'] 
+
+variableChar :: CharFilter
+variableChar = unionChar [alphabetChar, numberChar, anyChar "_"]
 
 
-findWord :: (Char -> Bool) -> PatternFinder String   
-findWord fun = PatternFinder $ \s -> if fun (head s)
-	then case runPatternFinder (findWord fun) (tail s) of
+nextWord :: CharFilter -> PatternFinder String   
+nextWord fun = PatternFinder $ \s -> if fun (head s)
+	then case runPatternFinder (nextWord fun) (tail s) of
 		Nothing -> undefined
 		Just (_, b, c) -> Just ([], b, (head s): c)   
 	else Just([], s, [])
