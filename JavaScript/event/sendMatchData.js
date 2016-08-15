@@ -15,6 +15,7 @@ if (playerData.startedMatch == null) {
 }
 if (playerData.startedMatch.state != StartedMatchState.WinBlue && playerData.startedMatch.state != StartedMatchState.WinRed) {
     var message = {
+        messageType: "MatchDataMessage",
         data: event.data
     };
     sendMessage(message, event.playerID);

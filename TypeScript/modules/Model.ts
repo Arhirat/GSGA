@@ -76,7 +76,20 @@ export interface FinishMatchEvent
 
 export interface MatchDataMessage
 {
+	messageType: string,
 	data: string,
+}
+
+export interface MatchStartedMessage
+{
+	messageType: string,
+	playerData: PlayerData,
+}
+
+export interface MatchFinishedMessage
+{
+	messageType: string,
+	playerData: PlayerData,
 }
 
 

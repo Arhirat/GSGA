@@ -5,7 +5,7 @@ require("Model")
 
 
 var playerID = getPlayerID();
-var playerData = getDefaultPlayerData(playerID);
+var playerData = getPlayerData(playerID);
 if (playerData == null) {
     playerData = getDefaultPlayerData(playerID);
     save(playerData);

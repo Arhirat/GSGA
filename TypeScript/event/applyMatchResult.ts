@@ -1,6 +1,6 @@
 
-import {getPlayerID, getPlayerData, getEvent, save } from "../modules/SparkHelper";
-import {StartedMatch, StartedMatchState, getRandomInt, getDefaultPlayerData, TestFinishMatchEvent} from "../modules/Model";
+import {setScriptData, getPlayerID, getPlayerData, getEvent, save } from "../modules/SparkHelper";
+import {StartedMatch, StartedMatchState} from "../modules/Model";
 
 
 
@@ -39,3 +39,4 @@ else
 playerData.startedMatch = null;
 
 save(playerData);
+setScriptData("playerData", playerData);

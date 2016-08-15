@@ -1,21 +1,32 @@
-import {getPlayerID, getPlayerData, getEvent, save } from "../modules/SparkHelper";
-import {StartedMatch, StartedMatchState, getRandomInt, getDefaultPlayerData, TestStartMatchEvent} from "../modules/Model";
+import {getPlayerID, getPlayerData, getEvent, save, sendMessage } from "../modules/SparkHelper";
+import {StartedMatch, StartedMatchState, getRandomInt, getDefaultPlayerData, TestStartMatchEvent, MatchStartedMessage} from "../modules/Model";
 
 
 
-var playerID = getPlayerID();
-var playerData = getPlayerData(playerID);
+var playerID1 = getPlayerID();
+var playerData1 = getPlayerData(playerID1);
 var event = getEvent<TestStartMatchEvent>(); 
-var opponentPlayerID = event.opponentPlayerID;
+var playerID2 = event.opponentPlayerID;
+var playerData2 = getPlayerData(playerID2);
 
-if(playerData == null)
+if(playerData1 == null)
 {
-    throw "playerData == null";
+    throw "playerData1 == null";
 }
 
-if(playerData.startedMatch != null)
+if(playerData1.startedMatch != null)
 {
-    throw "playerData.startedMatch != null";
+    throw "playerData1.startedMatch != null";
+}
+
+if(playerData2 == null)
+{
+    throw "playerData2 == null";
+}
+
+if(playerData2.startedMatch != null)
+{
+    throw "playerData2.startedMatch != null";
 }
 
 var seed = getRandomInt(0, 10000);
@@ -24,8 +35,8 @@ var blue = getRandomInt(0, 2);
 var startedMatch : StartedMatch = 
 {
     seed: seed,
-	playerIDRed: blue == 1 ? playerID : opponentPlayerID,
-	playerIDBlue: blue == 1 ? opponentPlayerID : playerID,
+	playerIDRed: blue == 1 ? playerID1 : playerID2,
+	playerIDBlue: blue == 1 ? playerID2 : playerID1,
 	state: StartedMatchState.InProgress,
 	changeWinnerRes1: 0,
 	changeWinnerRes2: 0,
@@ -35,6 +46,30 @@ var startedMatch : StartedMatch =
 	changeLoserHonor: 0,
 };
 
-playerData.startedMatch = startedMatch;
+playerData1.startedMatch = startedMatch;
+playerData2.startedMatch = startedMatch;
 
-save(playerData);
+save(playerData1);
+save(playerData2);
+
+var message1 : MatchStartedMessage =
+{
+	messageType: "MatchStartedMessage",
+	playerData: playerData1,
+};
+sendMessage(message1, playerID1);
+
+var message2 : MatchStartedMessage =
+{
+	messageType: "MatchStartedMessage",
+	playerData: playerData2,
+};
+sendMessage(message2, playerID2);
+
+
+
+
+
+
+
+

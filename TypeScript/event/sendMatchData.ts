@@ -22,6 +22,7 @@ if(playerData.startedMatch.state != StartedMatchState.WinBlue && playerData.star
 {
 	var message : MatchDataMessage =
  	{
+		messageType: "MatchDataMessage", 
 		data: event.data,
 	};
 	sendMessage(message, event.playerID);

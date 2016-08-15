@@ -26,3 +26,4 @@ else {
 }
 playerData.startedMatch = null;
 save(playerData);
+setScriptData("playerData", playerData);

@@ -23,3 +23,4 @@ else {
 }
 playerData.startedMatch = null;
 SparkHelper_1.save(playerData);
+SparkHelper_1.setScriptData("playerData", playerData);

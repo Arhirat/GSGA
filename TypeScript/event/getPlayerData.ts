@@ -1,9 +1,9 @@
-import {getPlayerID, save, setScriptData} from "../modules/SparkHelper";
+import {getPlayerID, getPlayerData, save, setScriptData} from "../modules/SparkHelper";
 import {getDefaultPlayerData} from "../modules/Model";
 
 
 var playerID = getPlayerID();
-var playerData = getDefaultPlayerData(playerID);
+var playerData = getPlayerData(playerID);
 
 if(playerData == null)
 {
