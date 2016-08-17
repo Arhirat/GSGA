@@ -13,8 +13,8 @@ if (playerData.startedMatch.state != Model_1.StartedMatchState.WinBlue && player
     throw "playerData.startedMatch.state != StartetMatchState.WinBlue && playerData.startedMatch.state != StartetMatchState.WinRed";
 }
 var startedMatch = playerData.startedMatch;
-var win = (playerData.startedMatch.state != Model_1.StartedMatchState.WinBlue && startedMatch.playerIDBlue == playerID) ||
-    (playerData.startedMatch.state != Model_1.StartedMatchState.WinRed && startedMatch.playerIDRed == playerID);
+var win = (playerData.startedMatch.state == Model_1.StartedMatchState.WinBlue && startedMatch.playerIDBlue == playerID) ||
+    (playerData.startedMatch.state == Model_1.StartedMatchState.WinRed && startedMatch.playerIDRed == playerID);
 if (win) {
     playerData.honor += startedMatch.changeWinnerHonor;
 }

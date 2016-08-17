@@ -24,6 +24,7 @@ if(playerData.startedMatch.state != StartedMatchState.WinBlue && playerData.star
  	{
 		messageType: "MatchDataMessage", 
 		data: event.data,
+		senderPlayerID: playerID,
 	};
 	sendMessage(message, event.playerID);
 }

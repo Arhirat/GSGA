@@ -16,8 +16,8 @@ if (playerData.startedMatch.state != StartedMatchState.WinBlue && playerData.sta
     throw "playerData.startedMatch.state != StartetMatchState.WinBlue && playerData.startedMatch.state != StartetMatchState.WinRed";
 }
 var startedMatch = playerData.startedMatch;
-var win = (playerData.startedMatch.state != StartedMatchState.WinBlue && startedMatch.playerIDBlue == playerID) ||
-    (playerData.startedMatch.state != StartedMatchState.WinRed && startedMatch.playerIDRed == playerID);
+var win = (playerData.startedMatch.state == StartedMatchState.WinBlue && startedMatch.playerIDBlue == playerID) ||
+    (playerData.startedMatch.state == StartedMatchState.WinRed && startedMatch.playerIDRed == playerID);
 if (win) {
     playerData.honor += startedMatch.changeWinnerHonor;
 }

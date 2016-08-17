@@ -16,10 +16,10 @@ var startedMatch = playerData.startedMatch;
 var isOnlineBlue = playerIsOnline(startedMatch.playerIDBlue);
 var isOnlineRed = playerIsOnline(startedMatch.playerIDRed);
 if (isOnlineBlue && !isOnlineRed) {
-    setStartedMatchWinner(startedMatch, TeamType.Blue);
+    setStartedMatchWinner(startedMatch, TeamType.Blue, MatchFinishReason.Disconnect);
     saveStartedMatch(startedMatch);
 }
 else if (!isOnlineBlue && isOnlineRed) {
-    setStartedMatchWinner(startedMatch, TeamType.Red);
+    setStartedMatchWinner(startedMatch, TeamType.Red, MatchFinishReason.Disconnect);
     saveStartedMatch(startedMatch);
 }

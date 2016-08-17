@@ -1,5 +1,5 @@
 import {getPlayerID, getPlayerData, getEvent, save, sendMessage } from "../modules/SparkHelper";
-import {StartedMatch, StartedMatchState, getRandomInt, getDefaultPlayerData, TestStartMatchEvent, MatchStartedMessage} from "../modules/Model";
+import {MatchFinishReason, StartedMatch, StartedMatchState, getRandomInt, getDefaultPlayerData, TestStartMatchEvent, MatchStartedMessage} from "../modules/Model";
 
 
 
@@ -39,6 +39,7 @@ var startedMatch : StartedMatch =
 	playerIDRed: blue == 1 ? playerID1 : playerID2,
 	playerIDBlue: blue == 1 ? playerID2 : playerID1,
 	state: StartedMatchState.InProgress,
+	finishReason: MatchFinishReason.None,
 	changeWinnerRes1: 0,
 	changeWinnerRes2: 0,
 	changeWinnerHonor: 0,

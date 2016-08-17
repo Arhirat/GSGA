@@ -11,6 +11,14 @@ var StartedMatchState = exports.StartedMatchState;
     TeamType[TeamType["Red"] = 2] = "Red";
 })(exports.TeamType || (exports.TeamType = {}));
 var TeamType = exports.TeamType;
+(function (MatchFinishReason) {
+    MatchFinishReason[MatchFinishReason["None"] = 0] = "None";
+    MatchFinishReason[MatchFinishReason["Win"] = 1] = "Win";
+    MatchFinishReason[MatchFinishReason["Surrender"] = 2] = "Surrender";
+    MatchFinishReason[MatchFinishReason["Disconnect"] = 3] = "Disconnect";
+    MatchFinishReason[MatchFinishReason["Cheater"] = 4] = "Cheater";
+})(exports.MatchFinishReason || (exports.MatchFinishReason = {}));
+var MatchFinishReason = exports.MatchFinishReason;
 // --------- FUNCTION --------------
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
@@ -26,8 +34,9 @@ function getDefaultPlayerData(playerID) {
     };
 }
 exports.getDefaultPlayerData = getDefaultPlayerData;
-function setStartedMatchWinner(startedMatch, winnerTeam) {
+function setStartedMatchWinner(startedMatch, winnerTeam, finishReason) {
     startedMatch.state = winnerTeam == TeamType.Blue ? StartedMatchState.WinBlue : StartedMatchState.WinRed;
+    startedMatch.finishReason = finishReason;
     startedMatch.changeWinnerRes1 = 10;
     startedMatch.changeWinnerRes2 = 10;
     startedMatch.changeWinnerHonor = 10;

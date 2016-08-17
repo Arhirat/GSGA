@@ -1,4 +1,3 @@
-import * as Spark from "../modules/Spark";
 import {getPlayerID, save } from "../modules/SparkHelper";
 import {getDefaultPlayerData} from "../modules/Model";
 

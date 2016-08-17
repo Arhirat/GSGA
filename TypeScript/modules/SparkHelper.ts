@@ -95,7 +95,7 @@ export function playerIsOnline(playerID: string): boolean
 //TypeScriptCode
 	throw "Заглушка";
 /*SparkCode
-	return Spark.loadPlayer(playerId).isOnline();
+	return Spark.loadPlayer(playerID).isOnline();
 */
 }
 

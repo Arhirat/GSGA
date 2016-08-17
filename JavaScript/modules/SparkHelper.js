@@ -69,7 +69,7 @@ function loadMatch(matchID) {
 exports.loadMatch = loadMatch;
 function playerIsOnline(playerID) {
     
-        return Spark.loadPlayer(playerId).isOnline();
+        return Spark.loadPlayer(playerID).isOnline();
     
 }
 exports.playerIsOnline = playerIsOnline;

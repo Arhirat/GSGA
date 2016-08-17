@@ -83,7 +83,7 @@ function playerIsOnline(playerID) {
     //TypeScriptCode
     throw "Заглушка";
     /*SparkCode
-        return Spark.loadPlayer(playerId).isOnline();
+        return Spark.loadPlayer(playerID).isOnline();
     */
 }
 exports.playerIsOnline = playerIsOnline;

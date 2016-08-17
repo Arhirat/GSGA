@@ -13,10 +13,10 @@ var startedMatch = playerData.startedMatch;
 var isOnlineBlue = SparkHelper_1.playerIsOnline(startedMatch.playerIDBlue);
 var isOnlineRed = SparkHelper_1.playerIsOnline(startedMatch.playerIDRed);
 if (isOnlineBlue && !isOnlineRed) {
-    Model_1.setStartedMatchWinner(startedMatch, Model_1.TeamType.Blue);
+    Model_1.setStartedMatchWinner(startedMatch, Model_1.TeamType.Blue, Model_1.MatchFinishReason.Disconnect);
     SparkHelper_1.saveStartedMatch(startedMatch);
 }
 else if (!isOnlineBlue && isOnlineRed) {
-    Model_1.setStartedMatchWinner(startedMatch, Model_1.TeamType.Red);
+    Model_1.setStartedMatchWinner(startedMatch, Model_1.TeamType.Red, Model_1.MatchFinishReason.Disconnect);
     SparkHelper_1.saveStartedMatch(startedMatch);
 }

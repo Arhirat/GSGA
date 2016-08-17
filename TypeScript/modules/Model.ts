@@ -13,6 +13,15 @@ export enum TeamType
 	Red = 2,
 }
 
+export enum MatchFinishReason
+{
+	None = 0,
+	Win = 1,
+	Surrender = 2,
+	Disconnect = 3,
+	Cheater = 4,
+}
+
 
 
 // --------- INTERFACE --------------
@@ -23,6 +32,7 @@ export interface StartedMatch
 	playerIDRed: string,
 	playerIDBlue: string,
 	state: StartedMatchState,
+	finishReason: MatchFinishReason,
 	changeWinnerRes1: number,
 	changeWinnerRes2: number,
 	changeWinnerHonor: number,
@@ -84,6 +94,7 @@ export interface SendMatchDataEvent
 export interface FinishMatchEvent
 {
 	winnerTeam: TeamType,
+	reason: MatchFinishReason, 
 }
 
 
@@ -97,6 +108,7 @@ export interface MatchDataMessage
 {
 	messageType: string,
 	data: string,
+	senderPlayerID: string,
 }
 
 export interface MatchStartedMessage
@@ -135,9 +147,10 @@ export function getDefaultPlayerData(playerID: string): PlayerData
     };
 }
 
-export function setStartedMatchWinner(startedMatch: StartedMatch, winnerTeam: TeamType)
+export function setStartedMatchWinner(startedMatch: StartedMatch, winnerTeam: TeamType, finishReason: MatchFinishReason)
 {
-	startedMatch.state = winnerTeam == TeamType.Blue ? StartedMatchState.WinBlue : StartedMatchState.WinRed; 
+	startedMatch.state = winnerTeam == TeamType.Blue ? StartedMatchState.WinBlue : StartedMatchState.WinRed;
+ 	startedMatch.finishReason = finishReason;
 	startedMatch.changeWinnerRes1 = 10;
 	startedMatch.changeWinnerRes2 = 10;
 	startedMatch.changeWinnerHonor = 10;

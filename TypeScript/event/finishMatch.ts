@@ -1,5 +1,5 @@
 
-import {saveStartedMatch, getPlayerID, getPlayerData, getEvent, save, sendMessage } from "../modules/SparkHelper";
+import {setScriptData, saveStartedMatch, getPlayerID, getPlayerData, getEvent, save, sendMessage } from "../modules/SparkHelper";
 import {setStartedMatchWinner, StartedMatch, StartedMatchState, FinishMatchEvent, TeamType, MatchFinishedMessage} from "../modules/Model";
 
 
@@ -8,6 +8,7 @@ var playerID = getPlayerID();
 var playerData = getPlayerData(playerID);
 var event = getEvent<FinishMatchEvent>(); 
 var winnerTeam = event.winnerTeam;
+var finishReason = event.reason;
 
 if(playerData == null)
 {
@@ -21,10 +22,14 @@ if(playerData.startedMatch == null)
 
 if(playerData.startedMatch.state == StartedMatchState.WinBlue || playerData.startedMatch.state == StartedMatchState.WinRed)
 {
-	throw "# Match already finished";
+	setScriptData("status", "match already finished"); 
 }
+else
+{
+	var startedMatch = playerData.startedMatch;
 
-var startedMatch = playerData.startedMatch;
+	setStartedMatchWinner(startedMatch, winnerTeam, finishReason);
+	saveStartedMatch(startedMatch);
 
-setStartedMatchWinner(startedMatch, winnerTeam);
-saveStartedMatch(startedMatch);
+	setScriptData("status", "ok"); 
+}

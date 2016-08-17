@@ -26,6 +26,7 @@ var startedMatch = {
     playerIDRed: blue == 1 ? playerID1 : playerID2,
     playerIDBlue: blue == 1 ? playerID2 : playerID1,
     state: Model_1.StartedMatchState.InProgress,
+    finishReason: Model_1.MatchFinishReason.None,
     changeWinnerRes1: 0,
     changeWinnerRes2: 0,
     changeWinnerHonor: 0,

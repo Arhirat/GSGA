@@ -13,7 +13,8 @@ if (playerData.startedMatch == null) {
 if (playerData.startedMatch.state != Model_1.StartedMatchState.WinBlue && playerData.startedMatch.state != Model_1.StartedMatchState.WinRed) {
     var message = {
         messageType: "MatchDataMessage",
-        data: event.data
+        data: event.data,
+        senderPlayerID: playerID
     };
     SparkHelper_1.sendMessage(message, event.playerID);
 }

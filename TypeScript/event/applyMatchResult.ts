@@ -24,8 +24,8 @@ if(playerData.startedMatch.state != StartedMatchState.WinBlue && playerData.star
 
 
 var startedMatch = playerData.startedMatch;
-var win = (playerData.startedMatch.state != StartedMatchState.WinBlue && startedMatch.playerIDBlue == playerID) || 
-	(playerData.startedMatch.state != StartedMatchState.WinRed && startedMatch.playerIDRed == playerID);
+var win = (playerData.startedMatch.state == StartedMatchState.WinBlue && startedMatch.playerIDBlue == playerID) || 
+	(playerData.startedMatch.state == StartedMatchState.WinRed && startedMatch.playerIDRed == playerID);
 
 if(win)
 {
