@@ -14,20 +14,16 @@ if (playerData.startedMatch == null) {
 }
 var startedMatch = playerData.startedMatch;
 if (playerData.startedMatch.state == StartedMatchState.InProgress) {
-    var winner = startedMatch.playerIDBlue == playerID ? TeamType.Red : TeamType.Blue;
-    setStartedMatchWinner(startedMatch, winner, MatchFinishReason.Disconnect);
-    saveStartedMatch(startedMatch);
+    throw "playerData.startedMatch.state == StartedMatchState.InProgress";
+}
+var win = (playerData.startedMatch.state == StartedMatchState.WinBlue && startedMatch.playerIDBlue == playerID) ||
+    (playerData.startedMatch.state == StartedMatchState.WinRed && startedMatch.playerIDRed == playerID);
+if (win) {
+    playerData.honor += startedMatch.changeWinnerHonor;
 }
 else {
-    var win = (playerData.startedMatch.state == StartedMatchState.WinBlue && startedMatch.playerIDBlue == playerID) ||
-        (playerData.startedMatch.state == StartedMatchState.WinRed && startedMatch.playerIDRed == playerID);
-    if (win) {
-        playerData.honor += startedMatch.changeWinnerHonor;
-    }
-    else {
-        playerData.honor += startedMatch.changeLoserHonor;
-    }
-    playerData.startedMatch = null;
-    save(playerData);
-    setScriptData("playerData", playerData);
+    playerData.honor += startedMatch.changeLoserHonor;
 }
+playerData.startedMatch = null;
+save(playerData);
+setScriptData("playerData", playerData);

@@ -11,20 +11,16 @@ if (playerData.startedMatch == null) {
 }
 var startedMatch = playerData.startedMatch;
 if (playerData.startedMatch.state == Model_1.StartedMatchState.InProgress) {
-    var winner = startedMatch.playerIDBlue == playerID ? Model_1.TeamType.Red : Model_1.TeamType.Blue;
-    Model_1.setStartedMatchWinner(startedMatch, winner, Model_1.MatchFinishReason.Disconnect);
-    SparkHelper_1.saveStartedMatch(startedMatch);
+    throw "playerData.startedMatch.state == StartedMatchState.InProgress";
+}
+var win = (playerData.startedMatch.state == Model_1.StartedMatchState.WinBlue && startedMatch.playerIDBlue == playerID) ||
+    (playerData.startedMatch.state == Model_1.StartedMatchState.WinRed && startedMatch.playerIDRed == playerID);
+if (win) {
+    playerData.honor += startedMatch.changeWinnerHonor;
 }
 else {
-    var win = (playerData.startedMatch.state == Model_1.StartedMatchState.WinBlue && startedMatch.playerIDBlue == playerID) ||
-        (playerData.startedMatch.state == Model_1.StartedMatchState.WinRed && startedMatch.playerIDRed == playerID);
-    if (win) {
-        playerData.honor += startedMatch.changeWinnerHonor;
-    }
-    else {
-        playerData.honor += startedMatch.changeLoserHonor;
-    }
-    playerData.startedMatch = null;
-    SparkHelper_1.save(playerData);
-    SparkHelper_1.setScriptData("playerData", playerData);
+    playerData.honor += startedMatch.changeLoserHonor;
 }
+playerData.startedMatch = null;
+SparkHelper_1.save(playerData);
+SparkHelper_1.setScriptData("playerData", playerData);
