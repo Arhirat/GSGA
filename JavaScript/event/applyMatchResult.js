@@ -12,18 +12,22 @@ if (playerData == null) {
 if (playerData.startedMatch == null) {
     throw "playerData.startedMatch == null";
 }
-if (playerData.startedMatch.state != StartedMatchState.WinBlue && playerData.startedMatch.state != StartedMatchState.WinRed) {
-    throw "playerData.startedMatch.state != StartetMatchState.WinBlue && playerData.startedMatch.state != StartetMatchState.WinRed";
-}
 var startedMatch = playerData.startedMatch;
-var win = (playerData.startedMatch.state == StartedMatchState.WinBlue && startedMatch.playerIDBlue == playerID) ||
-    (playerData.startedMatch.state == StartedMatchState.WinRed && startedMatch.playerIDRed == playerID);
-if (win) {
-    playerData.honor += startedMatch.changeWinnerHonor;
+if (playerData.startedMatch.state == StartedMatchState.InProgress) {
+    var winner = startedMatch.playerIDBlue == playerID ? TeamType.Red : TeamType.Blue;
+    setStartedMatchWinner(startedMatch, winner, MatchFinishReason.Disconnect);
+    saveStartedMatch(startedMatch);
 }
 else {
-    playerData.honor += startedMatch.changeLoserHonor;
+    var win = (playerData.startedMatch.state == StartedMatchState.WinBlue && startedMatch.playerIDBlue == playerID) ||
+        (playerData.startedMatch.state == StartedMatchState.WinRed && startedMatch.playerIDRed == playerID);
+    if (win) {
+        playerData.honor += startedMatch.changeWinnerHonor;
+    }
+    else {
+        playerData.honor += startedMatch.changeLoserHonor;
+    }
+    playerData.startedMatch = null;
+    save(playerData);
+    setScriptData("playerData", playerData);
 }
-playerData.startedMatch = null;
-save(playerData);
-setScriptData("playerData", playerData);

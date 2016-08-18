@@ -1,6 +1,6 @@
 
-import {setScriptData, getPlayerID, getPlayerData, getEvent, save } from "../modules/SparkHelper";
-import {StartedMatch, StartedMatchState} from "../modules/Model";
+import {setScriptData, getPlayerID, getPlayerData, getEvent, save, saveStartedMatch } from "../modules/SparkHelper";
+import {StartedMatch, StartedMatchState, TeamType, setStartedMatchWinner, MatchFinishReason} from "../modules/Model";
 
 
 
@@ -17,26 +17,30 @@ if(playerData.startedMatch == null)
     throw "playerData.startedMatch == null";
 }
 
-if(playerData.startedMatch.state != StartedMatchState.WinBlue && playerData.startedMatch.state != StartedMatchState.WinRed)
-{
-    throw "playerData.startedMatch.state != StartetMatchState.WinBlue && playerData.startedMatch.state != StartetMatchState.WinRed";
-}
-
-
 var startedMatch = playerData.startedMatch;
-var win = (playerData.startedMatch.state == StartedMatchState.WinBlue && startedMatch.playerIDBlue == playerID) || 
-	(playerData.startedMatch.state == StartedMatchState.WinRed && startedMatch.playerIDRed == playerID);
 
-if(win)
+if(playerData.startedMatch.state == StartedMatchState.InProgress)
 {
-    playerData.honor += startedMatch.changeWinnerHonor; 
+	var winner = startedMatch.playerIDBlue == playerID ? TeamType.Red : TeamType.Blue; 
+	setStartedMatchWinner(startedMatch, winner, MatchFinishReason.Disconnect);
+	saveStartedMatch(startedMatch);
 }
 else
 {
-	playerData.honor += startedMatch.changeLoserHonor; 
+	var win = (playerData.startedMatch.state == StartedMatchState.WinBlue && startedMatch.playerIDBlue == playerID) || 
+		(playerData.startedMatch.state == StartedMatchState.WinRed && startedMatch.playerIDRed == playerID);
+
+	if(win)
+	{
+	    playerData.honor += startedMatch.changeWinnerHonor; 
+	}
+	else
+	{
+		playerData.honor += startedMatch.changeLoserHonor; 
+	}
+
+	playerData.startedMatch = null;
+
+	save(playerData);
+	setScriptData("playerData", playerData);
 }
-
-playerData.startedMatch = null;
-
-save(playerData);
-setScriptData("playerData", playerData);

@@ -12,6 +12,8 @@ if (playerData == null) {
 if (playerData.startedMatch == null) {
     throw "playerData.startedMatch == null";
 }
+if (winnerTeam != Model_1.TeamType.Blue && winnerTeam != Model_1.TeamType.Red)
+    throw "winnerTeam != TeamType.Blue && winnerTeam != TeamType.Red";
 if (playerData.startedMatch.state == Model_1.StartedMatchState.WinBlue || playerData.startedMatch.state == Model_1.StartedMatchState.WinRed) {
     SparkHelper_1.setScriptData("status", "match already finished");
 }
