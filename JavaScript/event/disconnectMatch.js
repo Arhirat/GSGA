@@ -18,3 +18,4 @@ if (playerData.startedMatch.state == StartedMatchState.InProgress) {
     setStartedMatchWinner(startedMatch, winner, MatchFinishReason.Disconnect);
     saveStartedMatch(startedMatch);
 }
+setScriptData("playerData", playerData);

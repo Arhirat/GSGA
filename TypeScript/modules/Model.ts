@@ -97,6 +97,11 @@ export interface FinishMatchEvent
 	reason: MatchFinishReason, 
 }
 
+export interface SetAchievementEvent
+{
+	achievementID: string,
+}
+
 
 
 

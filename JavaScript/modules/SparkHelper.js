@@ -73,6 +73,13 @@ function playerIsOnline(playerID) {
     
 }
 exports.playerIsOnline = playerIsOnline;
+function playerSetAchievement(achievementID) {
+    
+        var player = Spark.getPlayer();
+        player.addAchievement(achievementID);
+    
+}
+exports.playerSetAchievement = playerSetAchievement;
 function saveStartedMatch(startedMatch) {
     var playerIDBlue = startedMatch.playerIDBlue;
     var playerIDRed = startedMatch.playerIDRed;

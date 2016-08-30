@@ -55,7 +55,8 @@ findPattern p = PatternFinder $ \s -> case findSubstring p s of
 type CharFilter = Char -> Bool
 
 unionChar :: [CharFilter] -> CharFilter
-unionChar list = fmap or $ sequence list
+--unionChar = (<$>)or.sequence
+unionChar = fmap or.sequence
   
 spaceChar :: CharFilter
 spaceChar c = c == ' ' 

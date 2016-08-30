@@ -15,3 +15,4 @@ if (playerData.startedMatch.state == Model_1.StartedMatchState.InProgress) {
     Model_1.setStartedMatchWinner(startedMatch, winner, Model_1.MatchFinishReason.Disconnect);
     SparkHelper_1.saveStartedMatch(startedMatch);
 }
+SparkHelper_1.setScriptData("playerData", playerData);

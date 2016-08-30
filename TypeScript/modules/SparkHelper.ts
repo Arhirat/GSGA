@@ -100,6 +100,15 @@ export function playerIsOnline(playerID: string): boolean
 }
 
 
+export function playerSetAchievement(achievementID: string)
+{
+	//TypeScriptCode
+		throw "Заглушка";
+	/*SparkCode
+		var player = Spark.getPlayer();
+		player.addAchievement(achievementID);
+	*/
+}
 
 export function saveStartedMatch(startedMatch: StartedMatch)
 {
