@@ -101,9 +101,9 @@ function saveStartedMatch(startedMatch) {
     sendMessage(messageRed, playerIDRed);
 }
 exports.saveStartedMatch = saveStartedMatch;
-function sendLeaderboardValue(leaderboardEvent, value) {
+function sendLeaderboardValue(value, league, division) {
     
-        Spark.sendRequest({"@class": ".LogEventRequest", "eventKey": leaderboardEvent, "honor": value});
+        Spark.sendRequest({"@class": ".LogEventRequest", "eventKey": "setLeaderboardGroup", "honor": value, "league": league, "division": division});
     
 }
 exports.sendLeaderboardValue = sendLeaderboardValue;
