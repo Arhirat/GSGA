@@ -1,5 +1,5 @@
 
-import {setScriptData, getPlayerID, getPlayerData, getEvent, save, saveStartedMatch } from "../modules/SparkHelper";
+import {setScriptData, getPlayerID, getPlayerData, getEvent, save, saveStartedMatch, sendLeaderboardValue} from "../modules/SparkHelper";
 import {StartedMatch, StartedMatchState, TeamType, setStartedMatchWinner, MatchFinishReason} from "../modules/Model";
 
 
@@ -40,3 +40,6 @@ playerData.startedMatch = null;
 
 save(playerData);
 setScriptData("playerData", playerData);
+sendLeaderboardValue("setLeaderboardL1D1", playerData.honor);
+
+

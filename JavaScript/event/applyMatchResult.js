@@ -27,3 +27,4 @@ else {
 playerData.startedMatch = null;
 save(playerData);
 setScriptData("playerData", playerData);
+sendLeaderboardValue("setLeaderboardL1D1", playerData.honor);
