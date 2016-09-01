@@ -1,6 +1,7 @@
 "use strict";
 var exports = {};
 
+var EuropeLocal = "europe";
 // --------- ENUM --------------
 (function (StartedMatchState) {
     StartedMatchState[StartedMatchState["InProgress"] = 1] = "InProgress";
@@ -31,7 +32,8 @@ function getDefaultPlayerData(playerID) {
         playerID: playerID,
         honor: 100,
         league: 1,
-        division: 1,
+        division: 3,
+        local: EuropeLocal,
         startedMatch: null
     };
 }

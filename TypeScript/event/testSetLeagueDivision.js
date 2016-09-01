@@ -3,6 +3,7 @@ var SparkHelper_1 = require("../modules/SparkHelper");
 var playerID = SparkHelper_1.getPlayerID();
 var playerData = SparkHelper_1.getPlayerData(playerID);
 var event = SparkHelper_1.getEvent();
+SparkHelper_1.resetLeaderboardValue(playerData);
 playerData.league = event.league;
 playerData.division = event.division;
 SparkHelper_1.save(playerData);
