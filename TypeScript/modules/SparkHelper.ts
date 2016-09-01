@@ -141,12 +141,12 @@ export function saveStartedMatch(startedMatch: StartedMatch)
 
 
 
-export function sendLeaderboardValue(value: number, league: number, division: number)
+export function sendLeaderboardValue(playerData: PlayerData)
 {
 	//TypeScriptCode
 		throw "Заглушка";
 	/*SparkCode
-		Spark.sendRequest({"@class": ".LogEventRequest", "eventKey": "setLeaderboardGroup", "honor": value, "league": league, "division": division});
+		Spark.sendRequest({"@class": ".LogEventRequest", "eventKey": "setLeaderboardGroup", "honor": playerData.honor, "league": playerData.league, "division": playerData.division});
 	*/
 }
 

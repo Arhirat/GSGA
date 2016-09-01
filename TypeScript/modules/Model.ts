@@ -79,6 +79,11 @@ export interface TestStartMatchEvent
 {
 	opponentPlayerID: string,
 }
+export interface TestSetLeagueDivisionEvent
+{
+	league: number,
+	division: number,
+}
 
 export interface StartMatchEvent
 {

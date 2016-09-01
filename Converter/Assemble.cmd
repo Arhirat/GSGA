@@ -5,6 +5,12 @@ if NOT %errorlevel% == 0 (
 	exit /b %errorlevel%
 )
 echo on
+"c:\Program Files\nodejs\node.exe" "c:\Users\Shurik\AppData\Roaming\npm\node_modules\typescript\bin\tsc" ..\TypeScript\event\testSetLeagueDivision.ts
+echo off
+if NOT %errorlevel% == 0 (
+	exit /b %errorlevel%
+)
+echo on
 "c:\Program Files\nodejs\node.exe" "c:\Users\Shurik\AppData\Roaming\npm\node_modules\typescript\bin\tsc" ..\TypeScript\event\testFinishMatch.ts
 echo off
 if NOT %errorlevel% == 0 (

@@ -24,4 +24,4 @@ else {
 playerData.startedMatch = null;
 SparkHelper_1.save(playerData);
 SparkHelper_1.setScriptData("playerData", playerData);
-SparkHelper_1.sendLeaderboardValue(playerData.honor, playerData.league, playerData.division);
+SparkHelper_1.sendLeaderboardValue(playerData);

@@ -27,4 +27,4 @@ else {
 playerData.startedMatch = null;
 save(playerData);
 setScriptData("playerData", playerData);
-sendLeaderboardValue(playerData.honor, playerData.league, playerData.division);
+sendLeaderboardValue(playerData);
