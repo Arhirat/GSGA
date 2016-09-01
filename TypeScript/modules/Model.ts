@@ -66,6 +66,12 @@ export interface MatchInfo
 	participantList: ParticipantInfo[], 
 }
 
+export interface GameData
+{
+	competitionEnd: number,
+	seasonEnd: number,
+}
+
 
 
 

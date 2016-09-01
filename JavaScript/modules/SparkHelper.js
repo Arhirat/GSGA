@@ -14,6 +14,13 @@ function getPlayerData(playerID) {
     
 }
 exports.getPlayerData = getPlayerData;
+function getGameData() {
+    
+        var gameDataCollection = Spark.runtimeCollection("gameData");
+        return gameDataCollection.findOne();
+    
+}
+exports.getGameData = getGameData;
 function save(playerData) {
     
         var playerDataList = Spark.runtimeCollection("playerData");

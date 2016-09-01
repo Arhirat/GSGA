@@ -1,5 +1,5 @@
 
-import {MatchFinishedMessage, StartedMatch, PlayerData, MatchInfo} from "./Model";
+import {MatchFinishedMessage, StartedMatch, GameData, PlayerData, MatchInfo} from "./Model";
 
 
 export function getPlayerID(): string
@@ -20,6 +20,18 @@ export function getPlayerData(playerID: string): PlayerData
     return playerDataList.findOne({"playerID": playerID}); 
 */
 }
+
+export function getGameData(): GameData
+{
+//TypeScriptCode
+	throw "Заглушка";
+/*SparkCode
+	var gameDataCollection = Spark.runtimeCollection("gameData");
+	return gameDataCollection.findOne();
+*/
+}
+
+
 
 export function save(playerData: PlayerData)
 {

@@ -1,0 +1,5 @@
+time now: 1472746551141
+time competition end: Sat Sep 10 2016 12:00:00 GMT+0300 (RTZ 2 (зима))
+1473498000000
+time competition end: Mon Oct 10 2016 12:00:00 GMT+0300 (RTZ 2 (зима))
+1476090000000
