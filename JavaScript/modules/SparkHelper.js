@@ -109,7 +109,7 @@ function sendLeaderboardValue(playerData) {
 exports.sendLeaderboardValue = sendLeaderboardValue;
 function resetLeaderboardValue(playerData) {
     
-        Spark.sendRequest({"@class": ".LogEventRequest", "eventKey": "setLeaderboardGroup", "honor": -1, "league": playerData.league, "division": playerData.division});
+        Spark.sendRequest({"@class": ".LogEventRequest", "eventKey": "setLeaderboardGroup", "honor": -1, "league": playerData.league, "division": playerData.division, "local": playerData.local});
     
 }
 exports.resetLeaderboardValue = resetLeaderboardValue;

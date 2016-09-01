@@ -1,4 +1,4 @@
-import {getPlayerID, getPlayerData, save, setScriptData} from "../modules/SparkHelper";
+import {getPlayerID, getPlayerData, save, setScriptData, sendLeaderboardValue} from "../modules/SparkHelper";
 import {getDefaultPlayerData} from "../modules/Model";
 
 
@@ -9,6 +9,7 @@ if(playerData == null)
 {
     playerData = getDefaultPlayerData(playerID);
     save(playerData);
+	sendLeaderboardValue(playerData);
 }
 
 setScriptData("playerData", playerData);

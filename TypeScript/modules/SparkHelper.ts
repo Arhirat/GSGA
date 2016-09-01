@@ -155,7 +155,7 @@ export function resetLeaderboardValue(playerData: PlayerData)
 	//TypeScriptCode
 		throw "Заглушка";
 	/*SparkCode
-		Spark.sendRequest({"@class": ".LogEventRequest", "eventKey": "setLeaderboardGroup", "honor": -1, "league": playerData.league, "division": playerData.division});
+		Spark.sendRequest({"@class": ".LogEventRequest", "eventKey": "setLeaderboardGroup", "honor": -1, "league": playerData.league, "division": playerData.division, "local": playerData.local});
 	*/
 }
 
