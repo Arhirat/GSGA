@@ -22,10 +22,10 @@ if (win == 1) {
 else {
     startedMatch.state = blue ? StartedMatchState.WinRed : StartedMatchState.WinBlue;
 }
-startedMatch.changeWinnerRes1 = 10;
-startedMatch.changeWinnerRes2 = 10;
-startedMatch.changeWinnerHonor = 10;
-startedMatch.changeLoserRes1 = -10;
-startedMatch.changeLoserRes2 = -10;
-startedMatch.changeLoserHonor = -10;
+//startedMatch.changeWinnerRes1 = 10;
+//startedMatch.changeWinnerRes2 = 10;
+//startedMatch.changeWinnerHonor = 10;
+//startedMatch.changeLoserRes1 = -10;
+//startedMatch.changeLoserRes2 = -10;
+//startedMatch.changeLoserHonor = -10;
 save(playerData);

@@ -19,10 +19,10 @@ if (win == 1) {
 else {
     startedMatch.state = blue ? Model_1.StartedMatchState.WinRed : Model_1.StartedMatchState.WinBlue;
 }
-startedMatch.changeWinnerRes1 = 10;
-startedMatch.changeWinnerRes2 = 10;
-startedMatch.changeWinnerHonor = 10;
-startedMatch.changeLoserRes1 = -10;
-startedMatch.changeLoserRes2 = -10;
-startedMatch.changeLoserHonor = -10;
+//startedMatch.changeWinnerRes1 = 10;
+//startedMatch.changeWinnerRes2 = 10;
+//startedMatch.changeWinnerHonor = 10;
+//startedMatch.changeLoserRes1 = -10;
+//startedMatch.changeLoserRes2 = -10;
+//startedMatch.changeLoserHonor = -10;
 SparkHelper_1.save(playerData);

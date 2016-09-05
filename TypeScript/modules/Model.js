@@ -28,10 +28,10 @@ exports.getRandomInt = getRandomInt;
 function getDefaultPlayerData(playerID) {
     return {
         playerID: playerID,
-        honor: 100,
-        league: 1,
-        division: 3,
-        local: EuropeLocal,
+        //        honor: 100,
+        //		league: 1,
+        //		division: 3,
+        //		local: EuropeLocal,
         startedMatch: null
     };
 }
@@ -39,11 +39,11 @@ exports.getDefaultPlayerData = getDefaultPlayerData;
 function setStartedMatchWinner(startedMatch, winnerTeam, finishReason) {
     startedMatch.state = winnerTeam == TeamType.Blue ? StartedMatchState.WinBlue : StartedMatchState.WinRed;
     startedMatch.finishReason = finishReason;
-    startedMatch.changeWinnerRes1 = 10;
-    startedMatch.changeWinnerRes2 = 10;
-    startedMatch.changeWinnerHonor = 10;
-    startedMatch.changeLoserRes1 = -10;
-    startedMatch.changeLoserRes2 = -10;
-    startedMatch.changeLoserHonor = -10;
+    //	startedMatch.changeWinnerRes1 = 10;
+    //	startedMatch.changeWinnerRes2 = 10;
+    //	startedMatch.changeWinnerHonor = 10;
+    //	startedMatch.changeLoserRes1 = -10;
+    //	startedMatch.changeLoserRes2 = -10;
+    //	startedMatch.changeLoserHonor = -10;
 }
 exports.setStartedMatchWinner = setStartedMatchWinner;

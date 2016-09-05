@@ -37,21 +37,21 @@ export interface StartedMatch
 	playerIDBlue: string,
 	state: StartedMatchState,
 	finishReason: MatchFinishReason,
-	changeWinnerRes1: number,
-	changeWinnerRes2: number,
-	changeWinnerHonor: number,
-	changeLoserRes1: number,
-	changeLoserRes2: number,
-	changeLoserHonor: number,
+//	changeWinnerRes1: number,
+//	changeWinnerRes2: number,
+//	changeWinnerHonor: number,
+//	changeLoserRes1: number,
+//	changeLoserRes2: number,
+//	changeLoserHonor: number,
 }
 
 export interface PlayerData
 {
 	playerID: string,
-	honor: number,
-	league: number,
-	division: number,
-	local: string,
+//	honor: number,
+//	league: number,
+//	division: number,
+//	local: string,
 	startedMatch: StartedMatch
 }
 
@@ -81,7 +81,7 @@ export interface GameData
 
 
 
-// --------- EVENT --------------
+// --------- TEST EVENT --------------
 export interface TestFinishMatchEvent
 {
 	win: number
@@ -96,6 +96,9 @@ export interface TestSetLeagueDivisionEvent
 	division: number,
 }
 
+
+
+// --------- EVENT --------------
 export interface StartMatchEvent
 {
 	matchID: string,
@@ -161,10 +164,10 @@ export function getDefaultPlayerData(playerID: string): PlayerData
 {
     return {
 		playerID: playerID,
-        honor: 100,
-		league: 1,
-		division: 3,
-		local: EuropeLocal,
+//        honor: 100,
+//		league: 1,
+//		division: 3,
+//		local: EuropeLocal,
 		startedMatch: null
     };
 }
@@ -173,11 +176,11 @@ export function setStartedMatchWinner(startedMatch: StartedMatch, winnerTeam: Te
 {
 	startedMatch.state = winnerTeam == TeamType.Blue ? StartedMatchState.WinBlue : StartedMatchState.WinRed;
  	startedMatch.finishReason = finishReason;
-	startedMatch.changeWinnerRes1 = 10;
-	startedMatch.changeWinnerRes2 = 10;
-	startedMatch.changeWinnerHonor = 10;
-	startedMatch.changeLoserRes1 = -10;
-	startedMatch.changeLoserRes2 = -10;
-	startedMatch.changeLoserHonor = -10;
+//	startedMatch.changeWinnerRes1 = 10;
+//	startedMatch.changeWinnerRes2 = 10;
+//	startedMatch.changeWinnerHonor = 10;
+//	startedMatch.changeLoserRes1 = -10;
+//	startedMatch.changeLoserRes2 = -10;
+//	startedMatch.changeLoserHonor = -10;
 }
 

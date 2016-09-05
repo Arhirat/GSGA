@@ -27,13 +27,7 @@ else {
         playerIDRed: blue == 1 ? playerID1 : playerID2,
         playerIDBlue: blue == 1 ? playerID2 : playerID1,
         state: StartedMatchState.InProgress,
-        finishReason: MatchFinishReason.None,
-        changeWinnerRes1: 0,
-        changeWinnerRes2: 0,
-        changeWinnerHonor: 0,
-        changeLoserRes1: 0,
-        changeLoserRes2: 0,
-        changeLoserHonor: 0
+        finishReason: MatchFinishReason.None
     };
     for (var _i = 0, _a = match.participantList; _i < _a.length; _i++) {
         var participant = _a[_i];

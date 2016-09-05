@@ -26,13 +26,7 @@ var startedMatch = {
     playerIDRed: blue == 1 ? playerID1 : playerID2,
     playerIDBlue: blue == 1 ? playerID2 : playerID1,
     state: Model_1.StartedMatchState.InProgress,
-    finishReason: Model_1.MatchFinishReason.None,
-    changeWinnerRes1: 0,
-    changeWinnerRes2: 0,
-    changeWinnerHonor: 0,
-    changeLoserRes1: 0,
-    changeLoserRes2: 0,
-    changeLoserHonor: 0
+    finishReason: Model_1.MatchFinishReason.None
 };
 playerData1.startedMatch = startedMatch;
 playerData2.startedMatch = startedMatch;

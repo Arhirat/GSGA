@@ -15,12 +15,14 @@ if (playerData.startedMatch.state == Model_1.StartedMatchState.InProgress) {
 }
 var win = (playerData.startedMatch.state == Model_1.StartedMatchState.WinBlue && startedMatch.playerIDBlue == playerID) ||
     (playerData.startedMatch.state == Model_1.StartedMatchState.WinRed && startedMatch.playerIDRed == playerID);
-if (win) {
+/*if(win)
+{
     playerData.honor += startedMatch.changeWinnerHonor;
 }
-else {
+else
+{
     playerData.honor += startedMatch.changeLoserHonor;
-}
+}*/
 playerData.startedMatch = null;
 SparkHelper_1.save(playerData);
 SparkHelper_1.setScriptData("playerData", playerData);

@@ -3,7 +3,7 @@ import {setScriptData, getPlayerID, getPlayerData, getEvent, save, saveStartedMa
 import {TestSetLeagueDivisionEvent} from "../modules/Model";
 
 
-
+/*
 var playerID = getPlayerID();
 var playerData = getPlayerData(playerID);
 var event = getEvent<TestSetLeagueDivisionEvent>();  
@@ -17,4 +17,4 @@ save(playerData);
 setScriptData("playerData", playerData);
 sendLeaderboardValue(playerData);
 
-
+*/

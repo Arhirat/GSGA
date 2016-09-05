@@ -27,14 +27,14 @@ if(playerData.startedMatch.state == StartedMatchState.InProgress)
 var win = (playerData.startedMatch.state == StartedMatchState.WinBlue && startedMatch.playerIDBlue == playerID) || 
 	(playerData.startedMatch.state == StartedMatchState.WinRed && startedMatch.playerIDRed == playerID);
 
-if(win)
+/*if(win)
 {
 	playerData.honor += startedMatch.changeWinnerHonor; 
 }
 else
 {
 	playerData.honor += startedMatch.changeLoserHonor; 
-}
+}*/
 
 playerData.startedMatch = null;
 

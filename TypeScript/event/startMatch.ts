@@ -35,12 +35,12 @@ else
 		playerIDBlue: blue == 1 ? playerID2 : playerID1,
 		state: StartedMatchState.InProgress,
 		finishReason: MatchFinishReason.None,
-		changeWinnerRes1: 0,
-		changeWinnerRes2: 0,
-		changeWinnerHonor: 0,
-		changeLoserRes1: 0,
-		changeLoserRes2: 0,
-		changeLoserHonor: 0,
+//		changeWinnerRes1: 0,
+//		changeWinnerRes2: 0,
+//		changeWinnerHonor: 0,
+//		changeLoserRes1: 0,
+//		changeLoserRes2: 0,
+//		changeLoserHonor: 0,
 	};
 
 	for (let participant of match.participantList) 
