@@ -10,5 +10,6 @@ if (playerData == null) {
 }
 playerData.displayName = event.displayName;
 playerData.avatar = event.avatar;
+playerData.race = event.race;
 save(playerData);
 setScriptData("playerData", playerData);

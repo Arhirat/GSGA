@@ -21,12 +21,14 @@ else {
     var teamInfo1 = {
         playerID: playerID1,
         displayName: playerData1.displayName,
-        avatar: playerData1.avatar
+        avatar: playerData1.avatar,
+        race: playerData1.race
     };
     var teamInfo2 = {
         playerID: playerID2,
         displayName: playerData2.displayName,
-        avatar: playerData2.avatar
+        avatar: playerData2.avatar,
+        race: playerData2.race
     };
     var seed = Model_1.getRandomInt(0, 10000);
     var blue = Model_1.getRandomInt(0, 2);

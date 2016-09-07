@@ -50,6 +50,7 @@ export interface TeamInfo
 	playerID: string,
 	displayName: string,
 	avatar: number,
+	race: number,
 }
 
 
@@ -58,6 +59,7 @@ export interface PlayerData
 	playerID: string,
 	displayName: string,
 	avatar: number,
+	race: number,
 //	honor: number,
 //	league: number,
 //	division: number,
@@ -135,6 +137,7 @@ export interface SetProfileInfo
 {
 	displayName: string,
 	avatar: number,
+	race: number,
 }
 
 
@@ -182,6 +185,7 @@ export function getDefaultPlayerData(playerID: string): PlayerData
 		playerID: playerID,
 		displayName: "noname",
 		avatar: 0,
+		race: 0,
 //        honor: 100,
 //		league: 1,
 //		division: 3,

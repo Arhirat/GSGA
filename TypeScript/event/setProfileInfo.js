@@ -8,5 +8,6 @@ if (playerData == null) {
 }
 playerData.displayName = event.displayName;
 playerData.avatar = event.avatar;
+playerData.race = event.race;
 SparkHelper_1.save(playerData);
 SparkHelper_1.setScriptData("playerData", playerData);

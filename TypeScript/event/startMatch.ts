@@ -31,12 +31,14 @@ else
 		playerID: playerID1,
 		displayName: playerData1.displayName,
 		avatar: playerData1.avatar,
+		race: playerData1.race,
 	} 
 	var teamInfo2 : TeamInfo =
 	{
 		playerID: playerID2,
 		displayName: playerData2.displayName,
 		avatar: playerData2.avatar,
+		race: playerData2.race,
 	} 
 
 	var seed = getRandomInt(0, 10000);
