@@ -48,6 +48,8 @@ export interface StartedMatch
 export interface PlayerData
 {
 	playerID: string,
+	displayName: string,
+	avatar: number,
 //	honor: number,
 //	league: number,
 //	division: number,
@@ -121,6 +123,12 @@ export interface SetAchievementEvent
 	achievementID: string,
 }
 
+export interface SetProfileInfo
+{
+	displayName: string,
+	avatar: number,
+}
+
 
 
 
@@ -164,6 +172,8 @@ export function getDefaultPlayerData(playerID: string): PlayerData
 {
     return {
 		playerID: playerID,
+		displayName: "noname",
+		avatar: 0,
 //        honor: 100,
 //		league: 1,
 //		division: 3,
