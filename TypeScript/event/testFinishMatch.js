@@ -12,7 +12,7 @@ if (playerData.startedMatch == null) {
     throw "playerData.startedMatch == null";
 }
 var startedMatch = playerData.startedMatch;
-var blue = startedMatch.playerIDBlue == playerID;
+var blue = startedMatch.teamBlue.playerID == playerID;
 if (win == 1) {
     startedMatch.state = blue ? Model_1.StartedMatchState.WinBlue : Model_1.StartedMatchState.WinRed;
 }

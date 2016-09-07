@@ -24,8 +24,8 @@ if(playerData.startedMatch.state == StartedMatchState.InProgress)
 	throw "playerData.startedMatch.state == StartedMatchState.InProgress";
 }
 
-var win = (playerData.startedMatch.state == StartedMatchState.WinBlue && startedMatch.playerIDBlue == playerID) || 
-	(playerData.startedMatch.state == StartedMatchState.WinRed && startedMatch.playerIDRed == playerID);
+var win = (playerData.startedMatch.state == StartedMatchState.WinBlue && startedMatch.teamBlue.playerID == playerID) || 
+	(playerData.startedMatch.state == StartedMatchState.WinRed && startedMatch.teamRed.playerID == playerID);
 
 /*if(win)
 {

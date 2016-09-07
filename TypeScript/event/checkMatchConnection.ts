@@ -19,8 +19,8 @@ if(playerData.startedMatch == null)
 
 var startedMatch = playerData.startedMatch;
 
-var isOnlineBlue = playerIsOnline(startedMatch.playerIDBlue); 
-var isOnlineRed = playerIsOnline(startedMatch.playerIDRed); 
+var isOnlineBlue = playerIsOnline(startedMatch.teamBlue.playerID); 
+var isOnlineRed = playerIsOnline(startedMatch.teamRed.playerID); 
 
 
 if(isOnlineBlue && !isOnlineRed)

@@ -1,5 +1,5 @@
 import {getPlayerID, getPlayerData, getEvent, save, sendMessage } from "../modules/SparkHelper";
-import {MatchFinishReason, StartedMatch, StartedMatchState, getRandomInt, getDefaultPlayerData, TestStartMatchEvent, MatchStartedMessage} from "../modules/Model";
+import {MatchFinishReason, StartedMatch, StartedMatchState, getRandomInt, getDefaultPlayerData, TestStartMatchEvent, MatchStartedMessage, TeamInfo} from "../modules/Model";
 
 
 
@@ -29,6 +29,19 @@ if(playerData2.startedMatch != null)
     throw "playerData2.startedMatch != null";
 }
 
+var teamInfo1 : TeamInfo =
+{
+	playerID: playerID1,
+	displayName: playerData1.displayName,
+	avatar: playerData1.avatar,
+} 
+var teamInfo2 : TeamInfo =
+{
+	playerID: playerID2,
+	displayName: playerData2.displayName,
+	avatar: playerData2.avatar,
+} 
+
 var seed = getRandomInt(0, 10000);
 var blue = getRandomInt(0, 2);
 
@@ -36,8 +49,8 @@ var startedMatch : StartedMatch =
 {
 	matchID: "undef",
     seed: seed,
-	playerIDRed: blue == 1 ? playerID1 : playerID2,
-	playerIDBlue: blue == 1 ? playerID2 : playerID1,
+	teamRed: blue == 1 ? teamInfo1 : teamInfo2,
+	teamBlue: blue == 1 ? teamInfo2 : teamInfo1,
 	state: StartedMatchState.InProgress,
 	finishReason: MatchFinishReason.None,
 //	changeWinnerRes1: 0,

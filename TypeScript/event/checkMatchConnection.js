@@ -10,8 +10,8 @@ if (playerData.startedMatch == null) {
     throw "playerData.startedMatch == null";
 }
 var startedMatch = playerData.startedMatch;
-var isOnlineBlue = SparkHelper_1.playerIsOnline(startedMatch.playerIDBlue);
-var isOnlineRed = SparkHelper_1.playerIsOnline(startedMatch.playerIDRed);
+var isOnlineBlue = SparkHelper_1.playerIsOnline(startedMatch.teamBlue.playerID);
+var isOnlineRed = SparkHelper_1.playerIsOnline(startedMatch.teamRed.playerID);
 if (isOnlineBlue && !isOnlineRed) {
     Model_1.setStartedMatchWinner(startedMatch, Model_1.TeamType.Blue, Model_1.MatchFinishReason.Disconnect);
     SparkHelper_1.saveStartedMatch(startedMatch);

@@ -88,8 +88,8 @@ function playerSetAchievement(achievementID) {
 }
 exports.playerSetAchievement = playerSetAchievement;
 function saveStartedMatch(startedMatch) {
-    var playerIDBlue = startedMatch.playerIDBlue;
-    var playerIDRed = startedMatch.playerIDRed;
+    var playerIDBlue = startedMatch.teamBlue.playerID;
+    var playerIDRed = startedMatch.teamRed.playerID;
     var playerDataBlue = getPlayerData(playerIDBlue);
     var playerDataRed = getPlayerData(playerIDRed);
     playerDataBlue.startedMatch = startedMatch;

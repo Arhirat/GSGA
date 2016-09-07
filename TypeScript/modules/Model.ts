@@ -33,8 +33,8 @@ export interface StartedMatch
 {
 	matchID: string,
 	seed: number,
-	playerIDRed: string,
-	playerIDBlue: string,
+	teamRed: TeamInfo,
+	teamBlue: TeamInfo,
 	state: StartedMatchState,
 	finishReason: MatchFinishReason,
 //	changeWinnerRes1: number,
@@ -44,6 +44,14 @@ export interface StartedMatch
 //	changeLoserRes2: number,
 //	changeLoserHonor: number,
 }
+
+export interface TeamInfo
+{
+	playerID: string,
+	displayName: string,
+	avatar: number,
+}
+
 
 export interface PlayerData
 {
