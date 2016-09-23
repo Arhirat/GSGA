@@ -77,7 +77,7 @@ else
 		messageType: "MatchStartedMessage",
 		playerData: playerData2,
 	};
-	sendMessage(message2, playerID1);
+	sendMessage(message2, playerID2);
 
 
 	

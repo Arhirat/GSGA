@@ -60,6 +60,7 @@ export interface PlayerData
 	displayName: string,
 	avatar: number,
 	race: number,
+	star: number,
 //	honor: number,
 //	league: number,
 //	division: number,
@@ -140,6 +141,11 @@ export interface SetProfileInfo
 	race: number,
 }
 
+export interface ApplyBotMatchResult
+{
+	win: number,
+}
+
 
 
 
@@ -186,6 +192,7 @@ export function getDefaultPlayerData(playerID: string): PlayerData
 		displayName: "noname",
 		avatar: 0,
 		race: 0,
+		star: 0,
 //        honor: 100,
 //		league: 1,
 //		division: 3,

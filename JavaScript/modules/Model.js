@@ -33,6 +33,7 @@ function getDefaultPlayerData(playerID) {
         displayName: "noname",
         avatar: 0,
         race: 0,
+        star: 0,
         //        honor: 100,
         //		league: 1,
         //		division: 3,

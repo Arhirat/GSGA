@@ -130,7 +130,7 @@ function sendLeaderboardValue(playerData) {
     //TypeScriptCode
     throw "Заглушка";
     /*SparkCode
-        Spark.sendRequest({"@class": ".LogEventRequest", "eventKey": "setLeaderboardGroup", "honor": playerData.honor, "league": playerData.league, "division": playerData.division});
+//		Spark.sendRequest({"@class": ".LogEventRequest", "eventKey": "setLeaderboardGroup", "honor": playerData.honor, "league": playerData.league, "division": playerData.division});
     */
 }
 exports.sendLeaderboardValue = sendLeaderboardValue;

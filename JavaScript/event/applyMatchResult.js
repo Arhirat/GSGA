@@ -18,14 +18,11 @@ if (playerData.startedMatch.state == StartedMatchState.InProgress) {
 }
 var win = (playerData.startedMatch.state == StartedMatchState.WinBlue && startedMatch.teamBlue.playerID == playerID) ||
     (playerData.startedMatch.state == StartedMatchState.WinRed && startedMatch.teamRed.playerID == playerID);
-/*if(win)
-{
-    playerData.honor += startedMatch.changeWinnerHonor;
+if (win) {
+    playerData.star += 1;
 }
-else
-{
-    playerData.honor += startedMatch.changeLoserHonor;
-}*/
+else {
+}
 playerData.startedMatch = null;
 save(playerData);
 setScriptData("playerData", playerData);

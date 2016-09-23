@@ -53,6 +53,6 @@ else {
         messageType: "MatchStartedMessage",
         playerData: playerData2
     };
-    SparkHelper_1.sendMessage(message2, playerID1);
+    SparkHelper_1.sendMessage(message2, playerID2);
     SparkHelper_1.setScriptData("status", "started by myself");
 }
