@@ -24,6 +24,7 @@ export enum MatchFinishReason
 	Surrender = 2,
 	Disconnect = 3,
 	Cheater = 4,
+	TimeOver = 5,
 }
 
 

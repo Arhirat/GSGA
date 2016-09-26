@@ -18,6 +18,7 @@ var TeamType = exports.TeamType;
     MatchFinishReason[MatchFinishReason["Surrender"] = 2] = "Surrender";
     MatchFinishReason[MatchFinishReason["Disconnect"] = 3] = "Disconnect";
     MatchFinishReason[MatchFinishReason["Cheater"] = 4] = "Cheater";
+    MatchFinishReason[MatchFinishReason["TimeOver"] = 5] = "TimeOver";
 })(exports.MatchFinishReason || (exports.MatchFinishReason = {}));
 var MatchFinishReason = exports.MatchFinishReason;
 // --------- FUNCTION --------------
