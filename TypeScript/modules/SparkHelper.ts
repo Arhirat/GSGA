@@ -124,31 +124,30 @@ export function playerSetAchievement(achievementID: string)
 
 export function saveStartedMatch(startedMatch: StartedMatch)
 {
-	var playerIDBlue = startedMatch.teamBlue.playerID;
-	var playerIDRed = startedMatch.teamRed.playerID;
-	var playerDataBlue = getPlayerData(playerIDBlue);
-	var playerDataRed= getPlayerData(playerIDRed);
-	
-	playerDataBlue.startedMatch = startedMatch; 
-	playerDataRed.startedMatch = startedMatch; 
-	
-	save(playerDataBlue);
-	save(playerDataRed);
-	
-	var messageBlue : MatchFinishedMessage = 
+	if(startedMatch.teamBlue.bot == false)
 	{
-		messageType: "MatchFinishedMessage",
-		playerData: playerDataBlue,
-	};
-	sendMessage(messageBlue, playerIDBlue);
+		saveStartedMatchPlayer(startedMatch, startedMatch.teamBlue.playerID);
+	}
 	
-	var messageRed: MatchFinishedMessage = 
+	if(startedMatch.teamRed.bot == false)
 	{
-		messageType: "MatchFinishedMessage",
-		playerData: playerDataRed,
-	};
-	sendMessage(messageRed, playerIDRed);
+		saveStartedMatchPlayer(startedMatch, startedMatch.teamRed.playerID);
+	}
+}
 
+function saveStartedMatchPlayer(startedMatch: StartedMatch, playerID: string)
+{
+	var playerData = getPlayerData(playerID);
+	
+	playerData.startedMatch = startedMatch; 
+
+	save(playerData);
+	var message: MatchFinishedMessage = 
+	{
+		messageType: "MatchFinishedMessage",
+		playerData: playerData,
+	};
+	sendMessage(message, playerID);
 }
 
 export function startMatch(playerData1: PlayerData, playerData2: PlayerData, matchID: string)
