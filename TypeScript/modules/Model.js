@@ -5,6 +5,7 @@ var EuropeLocal = "europe";
     StartedMatchState[StartedMatchState["InProgress"] = 1] = "InProgress";
     StartedMatchState[StartedMatchState["WinBlue"] = 2] = "WinBlue";
     StartedMatchState[StartedMatchState["WinRed"] = 3] = "WinRed";
+    StartedMatchState[StartedMatchState["Draw"] = 4] = "Draw";
 })(exports.StartedMatchState || (exports.StartedMatchState = {}));
 var StartedMatchState = exports.StartedMatchState;
 (function (TeamType) {
@@ -33,14 +34,23 @@ function getDefaultPlayerData(playerID) {
         avatar: 0,
         race: 0,
         star: 0,
-        //        honor: 100,
-        //		league: 1,
-        //		division: 3,
-        //		local: EuropeLocal,
+        bot: false,
         startedMatch: null
     };
 }
 exports.getDefaultPlayerData = getDefaultPlayerData;
+function getBotPlayerData(displayName, avatar, race) {
+    return {
+        playerID: "bot",
+        displayName: displayName,
+        avatar: avatar,
+        race: race,
+        star: 0,
+        bot: true,
+        startedMatch: null
+    };
+}
+exports.getBotPlayerData = getBotPlayerData;
 function setStartedMatchWinner(startedMatch, winnerTeam, finishReason) {
     startedMatch.state = winnerTeam == TeamType.Blue ? StartedMatchState.WinBlue : StartedMatchState.WinRed;
     startedMatch.finishReason = finishReason;

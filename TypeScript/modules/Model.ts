@@ -9,6 +9,7 @@ export enum StartedMatchState
 	InProgress = 1,
 	WinBlue = 2,
 	WinRed = 3,
+	Draw = 4,
 }
 
 export enum TeamType
@@ -52,6 +53,7 @@ export interface TeamInfo
 	displayName: string,
 	avatar: number,
 	race: number,
+	bot: boolean,
 }
 
 
@@ -62,10 +64,7 @@ export interface PlayerData
 	avatar: number,
 	race: number,
 	star: number,
-//	honor: number,
-//	league: number,
-//	division: number,
-//	local: string,
+	bot: boolean,
 	startedMatch: StartedMatch
 }
 
@@ -116,6 +115,13 @@ export interface TestSetLeagueDivisionEvent
 export interface StartMatchEvent
 {
 	matchID: string,
+}
+
+export interface StartBotMatchEvent
+{
+	race: number,
+	avatar: number,
+	displayName: string,
 }
 
 export interface SendMatchDataEvent
@@ -194,10 +200,20 @@ export function getDefaultPlayerData(playerID: string): PlayerData
 		avatar: 0,
 		race: 0,
 		star: 0,
-//        honor: 100,
-//		league: 1,
-//		division: 3,
-//		local: EuropeLocal,
+		bot: false,
+		startedMatch: null
+    };
+}
+
+export function getBotPlayerData(displayName: string, avatar: number, race: number): PlayerData 
+{
+    return {
+		playerID: "bot",
+		displayName: displayName,
+		avatar: avatar,
+		race: race,
+		star: 0,
+		bot: true, 
 		startedMatch: null
     };
 }

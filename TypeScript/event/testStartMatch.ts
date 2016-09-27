@@ -35,6 +35,7 @@ var teamInfo1 : TeamInfo =
 	displayName: playerData1.displayName,
 	avatar: playerData1.avatar,
 	race: playerData1.race,
+	bot: false,
 } 
 var teamInfo2 : TeamInfo =
 {
@@ -42,6 +43,7 @@ var teamInfo2 : TeamInfo =
 	displayName: playerData2.displayName,
 	avatar: playerData2.avatar,
 	race: playerData2.race,
+	bot: false,
 } 
 
 var seed = getRandomInt(0, 10000);

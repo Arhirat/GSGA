@@ -1,5 +1,5 @@
 
-import {MatchFinishedMessage, StartedMatch, GameData, PlayerData, MatchInfo} from "./Model";
+import {MatchFinishedMessage, StartedMatch, GameData, PlayerData, MatchInfo, TeamInfo, getRandomInt, StartedMatchState, MatchFinishReason, MatchStartedMessage} from "./Model";
 
 
 export function getPlayerID(): string
@@ -151,6 +151,63 @@ export function saveStartedMatch(startedMatch: StartedMatch)
 
 }
 
+export function startMatch(playerData1: PlayerData, playerData2: PlayerData, matchID: string)
+{
+	var teamInfo1 : TeamInfo =
+	{
+		playerID: playerData1.playerID,
+		displayName: playerData1.displayName,
+		avatar: playerData1.avatar,
+		race: playerData1.race,
+		bot: playerData1.bot, 
+	} 
+	var teamInfo2 : TeamInfo =
+	{
+		playerID: playerData2.playerID,
+		displayName: playerData2.displayName,
+		avatar: playerData2.avatar,
+		race: playerData2.race,
+		bot: playerData2.bot, 
+	} 
+	
+	var seed = getRandomInt(0, 10000);
+	var blue = getRandomInt(0, 2);
+	
+	var startedMatch : StartedMatch = 
+	{
+		matchID: matchID,
+		seed: seed,
+		teamRed: blue == 1 ? teamInfo1 : teamInfo2,
+		teamBlue: blue == 1 ? teamInfo2 : teamInfo1,
+		state: StartedMatchState.InProgress,
+		finishReason: MatchFinishReason.None,
+	};
+	
+	if(playerData1.bot == false)
+	{
+		playerData1.startedMatch = startedMatch;
+		save(playerData1);
+		var message1 : MatchStartedMessage =
+		{
+			messageType: "MatchStartedMessage",
+			playerData: playerData1,
+		};
+		sendMessage(message1, playerData1.playerID);
+	}	
+	
+	if(playerData2.bot == false)
+	{
+		playerData2.startedMatch = startedMatch;
+		save(playerData2);
+		var message2 : MatchStartedMessage =
+		{
+			messageType: "MatchStartedMessage",
+			playerData: playerData2,
+		};
+		sendMessage(message2, playerData2.playerID);
+	}
+
+}
 
 
 export function sendLeaderboardValue(playerData: PlayerData)
