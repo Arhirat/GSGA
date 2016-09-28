@@ -1,6 +1,6 @@
 
 import {setScriptData, getPlayerID, getPlayerData, getEvent, save, saveStartedMatch, sendLeaderboardValue} from "../modules/SparkHelper";
-import {StartedMatch, StartedMatchState, TeamType, setStartedMatchWinner, MatchFinishReason} from "../modules/Model";
+import {StartedMatch, StartedMatchState, TeamType, MatchFinishReason} from "../modules/Model";
 
 
 

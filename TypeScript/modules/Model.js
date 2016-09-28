@@ -51,14 +51,3 @@ function getBotPlayerData(displayName, avatar, race) {
     };
 }
 exports.getBotPlayerData = getBotPlayerData;
-function setStartedMatchWinner(startedMatch, winnerTeam, finishReason) {
-    startedMatch.state = winnerTeam == TeamType.Blue ? StartedMatchState.WinBlue : StartedMatchState.WinRed;
-    startedMatch.finishReason = finishReason;
-    //	startedMatch.changeWinnerRes1 = 10;
-    //	startedMatch.changeWinnerRes2 = 10;
-    //	startedMatch.changeWinnerHonor = 10;
-    //	startedMatch.changeLoserRes1 = -10;
-    //	startedMatch.changeLoserRes2 = -10;
-    //	startedMatch.changeLoserHonor = -10;
-}
-exports.setStartedMatchWinner = setStartedMatchWinner;

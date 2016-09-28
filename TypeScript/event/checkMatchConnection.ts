@@ -1,6 +1,6 @@
 
 import {saveStartedMatch, playerIsOnline, getPlayerID, getPlayerData, getEvent, save, sendMessage } from "../modules/SparkHelper";
-import {MatchFinishReason, setStartedMatchWinner, StartedMatch, StartedMatchState, FinishMatchEvent, TeamType, MatchFinishedMessage} from "../modules/Model";
+import {MatchFinishReason, StartedMatch, StartedMatchState, FinishMatchEvent, TeamType, MatchFinishedMessage} from "../modules/Model";
 
 
 
@@ -25,11 +25,13 @@ var isOnlineRed = playerIsOnline(startedMatch.teamRed.playerID);
 
 if(isOnlineBlue && !isOnlineRed)
 {
-	setStartedMatchWinner(startedMatch, TeamType.Blue, MatchFinishReason.Disconnect);
+	startedMatch.state = StartedMatchState.WinBlue;
+ 	startedMatch.finishReason = MatchFinishReason.Disconnect;
 	saveStartedMatch(startedMatch);
 }
 else if(!isOnlineBlue && isOnlineRed)
 {
-	setStartedMatchWinner(startedMatch, TeamType.Red, MatchFinishReason.Disconnect);
+	startedMatch.state = StartedMatchState.WinRed;
+ 	startedMatch.finishReason = MatchFinishReason.Disconnect;
 	saveStartedMatch(startedMatch);
 }

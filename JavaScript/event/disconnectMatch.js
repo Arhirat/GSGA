@@ -14,8 +14,9 @@ if (playerData.startedMatch == null) {
 }
 var startedMatch = playerData.startedMatch;
 if (playerData.startedMatch.state == StartedMatchState.InProgress) {
-    var winner = startedMatch.teamBlue.playerID == playerID ? TeamType.Red : TeamType.Blue;
-    setStartedMatchWinner(startedMatch, winner, MatchFinishReason.Disconnect);
+    var state = startedMatch.teamBlue.playerID == playerID ? StartedMatchState.WinRed : StartedMatchState.WinBlue;
+    startedMatch.state = state;
+    startedMatch.finishReason = MatchFinishReason.Disconnect;
     saveStartedMatch(startedMatch);
 }
 setScriptData("playerData", playerData);

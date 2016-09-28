@@ -132,7 +132,7 @@ export interface SendMatchDataEvent
 
 export interface FinishMatchEvent
 {
-	winnerTeam: TeamType,
+	state: StartedMatchState,
 	reason: MatchFinishReason, 
 }
 
@@ -216,17 +216,5 @@ export function getBotPlayerData(displayName: string, avatar: number, race: numb
 		bot: true, 
 		startedMatch: null
     };
-}
-
-export function setStartedMatchWinner(startedMatch: StartedMatch, winnerTeam: TeamType, finishReason: MatchFinishReason)
-{
-	startedMatch.state = winnerTeam == TeamType.Blue ? StartedMatchState.WinBlue : StartedMatchState.WinRed;
- 	startedMatch.finishReason = finishReason;
-//	startedMatch.changeWinnerRes1 = 10;
-//	startedMatch.changeWinnerRes2 = 10;
-//	startedMatch.changeWinnerHonor = 10;
-//	startedMatch.changeLoserRes1 = -10;
-//	startedMatch.changeLoserRes2 = -10;
-//	startedMatch.changeLoserHonor = -10;
 }
 
