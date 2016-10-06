@@ -124,14 +124,14 @@ export function playerSetAchievement(achievementID: string)
 
 export function saveStartedMatch(startedMatch: StartedMatch)
 {
-	if(startedMatch.teamBlue.bot == false)
+	if(startedMatch.team1.bot == false)
 	{
-		saveStartedMatchPlayer(startedMatch, startedMatch.teamBlue.playerID);
+		saveStartedMatchPlayer(startedMatch, startedMatch.team1.playerID);
 	}
 	
-	if(startedMatch.teamRed.bot == false)
+	if(startedMatch.team2.bot == false)
 	{
-		saveStartedMatchPlayer(startedMatch, startedMatch.teamRed.playerID);
+		saveStartedMatchPlayer(startedMatch, startedMatch.team2.playerID);
 	}
 }
 
@@ -176,8 +176,8 @@ export function startMatch(playerData1: PlayerData, playerData2: PlayerData, mat
 	{
 		matchID: matchID,
 		seed: seed,
-		teamRed: blue == 1 ? teamInfo1 : teamInfo2,
-		teamBlue: blue == 1 ? teamInfo2 : teamInfo1,
+		team1: blue == 1 ? teamInfo1 : teamInfo2,
+		team2: blue == 1 ? teamInfo2 : teamInfo1,
 		state: StartedMatchState.InProgress,
 		finishReason: MatchFinishReason.None,
 	};

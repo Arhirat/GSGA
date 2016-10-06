@@ -11,7 +11,7 @@ if (playerData.startedMatch == null) {
 }
 var startedMatch = playerData.startedMatch;
 if (playerData.startedMatch.state == Model_1.StartedMatchState.InProgress) {
-    var state = startedMatch.teamBlue.playerID == playerID ? Model_1.StartedMatchState.WinRed : Model_1.StartedMatchState.WinBlue;
+    var state = startedMatch.team1.playerID == playerID ? Model_1.StartedMatchState.WinTeam2 : Model_1.StartedMatchState.WinTeam1;
     startedMatch.state = state;
     startedMatch.finishReason = Model_1.MatchFinishReason.Disconnect;
     SparkHelper_1.saveStartedMatch(startedMatch);

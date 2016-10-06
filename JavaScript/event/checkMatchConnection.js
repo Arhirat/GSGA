@@ -13,15 +13,15 @@ if (playerData.startedMatch == null) {
     throw "playerData.startedMatch == null";
 }
 var startedMatch = playerData.startedMatch;
-var isOnlineBlue = playerIsOnline(startedMatch.teamBlue.playerID);
-var isOnlineRed = playerIsOnline(startedMatch.teamRed.playerID);
-if (isOnlineBlue && !isOnlineRed) {
-    startedMatch.state = StartedMatchState.WinBlue;
+var isOnline1 = playerIsOnline(startedMatch.team1.playerID);
+var isOnline2 = playerIsOnline(startedMatch.team2.playerID);
+if (isOnline1 && !isOnline2) {
+    startedMatch.state = StartedMatchState.WinTeam1;
     startedMatch.finishReason = MatchFinishReason.Disconnect;
     saveStartedMatch(startedMatch);
 }
-else if (!isOnlineBlue && isOnlineRed) {
-    startedMatch.state = StartedMatchState.WinRed;
+else if (!isOnline1 && isOnline2) {
+    startedMatch.state = StartedMatchState.WinTeam2;
     startedMatch.finishReason = MatchFinishReason.Disconnect;
     saveStartedMatch(startedMatch);
 }

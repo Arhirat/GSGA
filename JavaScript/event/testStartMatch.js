@@ -40,8 +40,8 @@ var blue = getRandomInt(0, 2);
 var startedMatch = {
     matchID: "undef",
     seed: seed,
-    teamRed: blue == 1 ? teamInfo1 : teamInfo2,
-    teamBlue: blue == 1 ? teamInfo2 : teamInfo1,
+    team1: blue == 1 ? teamInfo1 : teamInfo2,
+    team2: blue == 1 ? teamInfo2 : teamInfo1,
     state: StartedMatchState.InProgress,
     finishReason: MatchFinishReason.None
 };

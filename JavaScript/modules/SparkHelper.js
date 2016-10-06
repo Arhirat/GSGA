@@ -90,11 +90,11 @@ function playerSetAchievement(achievementID) {
 }
 exports.playerSetAchievement = playerSetAchievement;
 function saveStartedMatch(startedMatch) {
-    if (startedMatch.teamBlue.bot == false) {
-        saveStartedMatchPlayer(startedMatch, startedMatch.teamBlue.playerID);
+    if (startedMatch.team1.bot == false) {
+        saveStartedMatchPlayer(startedMatch, startedMatch.team1.playerID);
     }
-    if (startedMatch.teamRed.bot == false) {
-        saveStartedMatchPlayer(startedMatch, startedMatch.teamRed.playerID);
+    if (startedMatch.team2.bot == false) {
+        saveStartedMatchPlayer(startedMatch, startedMatch.team2.playerID);
     }
 }
 exports.saveStartedMatch = saveStartedMatch;
@@ -128,8 +128,8 @@ function startMatch(playerData1, playerData2, matchID) {
     var startedMatch = {
         matchID: matchID,
         seed: seed,
-        teamRed: blue == 1 ? teamInfo1 : teamInfo2,
-        teamBlue: blue == 1 ? teamInfo2 : teamInfo1,
+        team1: blue == 1 ? teamInfo1 : teamInfo2,
+        team2: blue == 1 ? teamInfo2 : teamInfo1,
         state: StartedMatchState.InProgress,
         finishReason: MatchFinishReason.None
     };

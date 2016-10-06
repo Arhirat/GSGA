@@ -53,8 +53,8 @@ var startedMatch : StartedMatch =
 {
 	matchID: "undef",
     seed: seed,
-	teamRed: blue == 1 ? teamInfo1 : teamInfo2,
-	teamBlue: blue == 1 ? teamInfo2 : teamInfo1,
+	team1: blue == 1 ? teamInfo1 : teamInfo2,
+	team2: blue == 1 ? teamInfo2 : teamInfo1,
 	state: StartedMatchState.InProgress,
 	finishReason: MatchFinishReason.None,
 //	changeWinnerRes1: 0,

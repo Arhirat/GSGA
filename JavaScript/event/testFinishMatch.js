@@ -15,12 +15,12 @@ if (playerData.startedMatch == null) {
     throw "playerData.startedMatch == null";
 }
 var startedMatch = playerData.startedMatch;
-var blue = startedMatch.teamBlue.playerID == playerID;
+var blue = startedMatch.team1.playerID == playerID;
 if (win == 1) {
-    startedMatch.state = blue ? StartedMatchState.WinBlue : StartedMatchState.WinRed;
+    startedMatch.state = blue ? StartedMatchState.WinTeam1 : StartedMatchState.WinTeam2;
 }
 else {
-    startedMatch.state = blue ? StartedMatchState.WinRed : StartedMatchState.WinBlue;
+    startedMatch.state = blue ? StartedMatchState.WinTeam2 : StartedMatchState.WinTeam1;
 }
 //startedMatch.changeWinnerRes1 = 10;
 //startedMatch.changeWinnerRes2 = 10;

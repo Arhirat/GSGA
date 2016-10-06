@@ -16,8 +16,8 @@ var startedMatch = playerData.startedMatch;
 if (playerData.startedMatch.state == StartedMatchState.InProgress) {
     throw "playerData.startedMatch.state == StartedMatchState.InProgress";
 }
-var win = (playerData.startedMatch.state == StartedMatchState.WinBlue && startedMatch.teamBlue.playerID == playerID) ||
-    (playerData.startedMatch.state == StartedMatchState.WinRed && startedMatch.teamRed.playerID == playerID);
+var win = (playerData.startedMatch.state == StartedMatchState.WinTeam1 && startedMatch.team1.playerID == playerID) ||
+    (playerData.startedMatch.state == StartedMatchState.WinTeam2 && startedMatch.team2.playerID == playerID);
 if (win) {
     playerData.star += 1;
 }

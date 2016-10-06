@@ -7,15 +7,15 @@ const EuropeLocal = "europe";
 export enum StartedMatchState
 {
 	InProgress = 1,
-	WinBlue = 2,
-	WinRed = 3,
+	WinTeam1 = 2,
+	WinTeam2 = 3,
 	Draw = 4,
 }
 
 export enum TeamType
 {
-	Blue = 1,
-	Red = 2,
+	Team1 = 1,
+	Team2 = 2,
 }
 
 export enum MatchFinishReason
@@ -35,16 +35,10 @@ export interface StartedMatch
 {
 	matchID: string,
 	seed: number,
-	teamRed: TeamInfo,
-	teamBlue: TeamInfo,
+	team1: TeamInfo,
+	team2: TeamInfo,
 	state: StartedMatchState,
 	finishReason: MatchFinishReason,
-//	changeWinnerRes1: number,
-//	changeWinnerRes2: number,
-//	changeWinnerHonor: number,
-//	changeLoserRes1: number,
-//	changeLoserRes2: number,
-//	changeLoserHonor: number,
 }
 
 export interface TeamInfo

@@ -5,14 +5,14 @@ var EuropeLocal = "europe";
 // --------- ENUM --------------
 (function (StartedMatchState) {
     StartedMatchState[StartedMatchState["InProgress"] = 1] = "InProgress";
-    StartedMatchState[StartedMatchState["WinBlue"] = 2] = "WinBlue";
-    StartedMatchState[StartedMatchState["WinRed"] = 3] = "WinRed";
+    StartedMatchState[StartedMatchState["WinTeam1"] = 2] = "WinTeam1";
+    StartedMatchState[StartedMatchState["WinTeam2"] = 3] = "WinTeam2";
     StartedMatchState[StartedMatchState["Draw"] = 4] = "Draw";
 })(exports.StartedMatchState || (exports.StartedMatchState = {}));
 var StartedMatchState = exports.StartedMatchState;
 (function (TeamType) {
-    TeamType[TeamType["Blue"] = 1] = "Blue";
-    TeamType[TeamType["Red"] = 2] = "Red";
+    TeamType[TeamType["Team1"] = 1] = "Team1";
+    TeamType[TeamType["Team2"] = 2] = "Team2";
 })(exports.TeamType || (exports.TeamType = {}));
 var TeamType = exports.TeamType;
 (function (MatchFinishReason) {

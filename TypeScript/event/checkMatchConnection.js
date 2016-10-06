@@ -10,15 +10,15 @@ if (playerData.startedMatch == null) {
     throw "playerData.startedMatch == null";
 }
 var startedMatch = playerData.startedMatch;
-var isOnlineBlue = SparkHelper_1.playerIsOnline(startedMatch.teamBlue.playerID);
-var isOnlineRed = SparkHelper_1.playerIsOnline(startedMatch.teamRed.playerID);
-if (isOnlineBlue && !isOnlineRed) {
-    startedMatch.state = Model_1.StartedMatchState.WinBlue;
+var isOnline1 = SparkHelper_1.playerIsOnline(startedMatch.team1.playerID);
+var isOnline2 = SparkHelper_1.playerIsOnline(startedMatch.team2.playerID);
+if (isOnline1 && !isOnline2) {
+    startedMatch.state = Model_1.StartedMatchState.WinTeam1;
     startedMatch.finishReason = Model_1.MatchFinishReason.Disconnect;
     SparkHelper_1.saveStartedMatch(startedMatch);
 }
-else if (!isOnlineBlue && isOnlineRed) {
-    startedMatch.state = Model_1.StartedMatchState.WinRed;
+else if (!isOnline1 && isOnline2) {
+    startedMatch.state = Model_1.StartedMatchState.WinTeam2;
     startedMatch.finishReason = Model_1.MatchFinishReason.Disconnect;
     SparkHelper_1.saveStartedMatch(startedMatch);
 }
