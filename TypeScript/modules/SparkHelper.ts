@@ -21,6 +21,18 @@ export function getPlayerData(playerID: string): PlayerData
 */
 }
 
+export function findPlayerDataByDisplayName(displayName: string): PlayerData
+{
+//TypeScriptCode
+	throw "Заглушка";
+/*SparkCode
+	var playerDataList = Spark.runtimeCollection("playerData"); 
+    return playerDataList.findOne({"displayName" : displayName}); 
+*/
+}
+
+
+
 export function getGameData(): GameData
 {
 //TypeScriptCode

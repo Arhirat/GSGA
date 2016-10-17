@@ -16,6 +16,13 @@ function getPlayerData(playerID) {
     
 }
 exports.getPlayerData = getPlayerData;
+function findPlayerDataByDisplayName(displayName) {
+    
+        var playerDataList = Spark.runtimeCollection("playerData");
+        return playerDataList.findOne({"displayName" : displayName});
+    
+}
+exports.findPlayerDataByDisplayName = findPlayerDataByDisplayName;
 function getGameData() {
     
         var gameDataCollection = Spark.runtimeCollection("gameData");

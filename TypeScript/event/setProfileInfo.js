@@ -6,8 +6,15 @@ var event = SparkHelper_1.getEvent();
 if (playerData == null) {
     throw "playerData == null";
 }
-playerData.displayName = event.displayName;
-playerData.avatar = event.avatar;
-playerData.race = event.race;
-SparkHelper_1.save(playerData);
-SparkHelper_1.setScriptData("playerData", playerData);
+var existingPlayer = SparkHelper_1.findPlayerDataByDisplayName(event.displayName);
+if (existingPlayer == null || existingPlayer.playerID == playerID) {
+    playerData.displayName = event.displayName;
+    playerData.avatar = event.avatar;
+    playerData.race = event.race;
+    SparkHelper_1.save(playerData);
+    SparkHelper_1.setScriptData("playerData", playerData);
+}
+else {
+    SparkHelper_1.setScriptData("playerData", playerData);
+    SparkHelper_1.setScriptData("error", "player with such name already exist");
+}
