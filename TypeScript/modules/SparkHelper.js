@@ -135,19 +135,22 @@ function saveStartedMatchPlayer(startedMatch, playerID) {
     sendMessage(message, playerID);
 }
 function startMatch(playerData1, playerData2, matchID) {
+    var dtNow = getDtNow();
     var teamInfo1 = {
         playerID: playerData1.playerID,
         displayName: playerData1.displayName,
         avatar: playerData1.avatar,
         race: playerData1.race,
-        bot: playerData1.bot
+        bot: playerData1.bot,
+        donate: playerData1.donateExpiredDateTime > dtNow
     };
     var teamInfo2 = {
         playerID: playerData2.playerID,
         displayName: playerData2.displayName,
         avatar: playerData2.avatar,
         race: playerData2.race,
-        bot: playerData2.bot
+        bot: playerData2.bot,
+        donate: playerData2.donateExpiredDateTime > dtNow
     };
     var seed = Model_1.getRandomInt(0, 10000);
     var blue = Model_1.getRandomInt(0, 2);
@@ -195,3 +198,21 @@ function resetLeaderboardValue(playerData) {
     */
 }
 exports.resetLeaderboardValue = resetLeaderboardValue;
+function getDtNow() {
+    //TypeScriptCode
+    throw "Заглушка";
+    /*SparkCode
+        return new Date().getTime();
+    */
+}
+exports.getDtNow = getDtNow;
+function addDtDay(dateTime, day) {
+    //TypeScriptCode
+    throw "Заглушка";
+    /*SparkCode
+        var d = new Date(dateTime);
+        d.setDate(d.getDate() + day);
+        return d.getTime();
+    */
+}
+exports.addDtDay = addDtDay;

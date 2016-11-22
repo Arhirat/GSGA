@@ -164,6 +164,8 @@ function saveStartedMatchPlayer(startedMatch: StartedMatch, playerID: string)
 
 export function startMatch(playerData1: PlayerData, playerData2: PlayerData, matchID: string)
 {
+	var dtNow = getDtNow();
+	
 	var teamInfo1 : TeamInfo =
 	{
 		playerID: playerData1.playerID,
@@ -171,6 +173,7 @@ export function startMatch(playerData1: PlayerData, playerData2: PlayerData, mat
 		avatar: playerData1.avatar,
 		race: playerData1.race,
 		bot: playerData1.bot, 
+		donate: playerData1.donateExpiredDateTime > dtNow,
 	} 
 	var teamInfo2 : TeamInfo =
 	{
@@ -179,6 +182,7 @@ export function startMatch(playerData1: PlayerData, playerData2: PlayerData, mat
 		avatar: playerData2.avatar,
 		race: playerData2.race,
 		bot: playerData2.bot, 
+		donate: playerData2.donateExpiredDateTime > dtNow,
 	} 
 	
 	var seed = getRandomInt(0, 10000);
@@ -239,4 +243,23 @@ export function resetLeaderboardValue(playerData: PlayerData)
 	*/
 }
 
+export function getDtNow(): number
+{
+	//TypeScriptCode
+		throw "Заглушка";
+	/*SparkCode
+		return new Date().getTime();
+	*/
+}
 
+export function addDtDay(dateTime: number, day: number): number
+{
+	//TypeScriptCode
+		throw "Заглушка";
+	/*SparkCode
+		var d = new Date(dateTime);
+		d.setDate(d.getDate() + day); 
+		return d.getTime();
+	*/
+	
+}

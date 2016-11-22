@@ -1,6 +1,4 @@
 
-
-
 const EuropeLocal = "europe";
 
 // --------- ENUM --------------
@@ -48,6 +46,7 @@ export interface TeamInfo
 	avatar: number,
 	race: number,
 	bot: boolean,
+	donate: boolean,
 }
 
 
@@ -59,7 +58,8 @@ export interface PlayerData
 	race: number,
 	star: number,
 	bot: boolean,
-	startedMatch: StartedMatch
+	startedMatch: StartedMatch,
+	donateExpiredDateTime: number
 }
 
 export interface ParticipantInfo
@@ -135,6 +135,11 @@ export interface SetAchievementEvent
 	achievementID: string,
 }
 
+export interface DonateEvent
+{
+}
+
+
 export interface SetProfileInfo
 {
 	displayName: string,
@@ -195,7 +200,8 @@ export function getDefaultPlayerData(playerID: string): PlayerData
 		race: 0,
 		star: 0,
 		bot: false,
-		startedMatch: null
+		startedMatch: null,
+		donateExpiredDateTime: 0,
     };
 }
 
@@ -208,7 +214,16 @@ export function getBotPlayerData(displayName: string, avatar: number, race: numb
 		race: race,
 		star: 0,
 		bot: true, 
-		startedMatch: null
+		startedMatch: null,
+		donateExpiredDateTime: 0,
     };
 }
+
+
+
+
+
+
+
+
 

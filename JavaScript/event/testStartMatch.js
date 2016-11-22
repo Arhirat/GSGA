@@ -26,14 +26,16 @@ var teamInfo1 = {
     displayName: playerData1.displayName,
     avatar: playerData1.avatar,
     race: playerData1.race,
-    bot: false
+    bot: false,
+    donate: false
 };
 var teamInfo2 = {
     playerID: playerID2,
     displayName: playerData2.displayName,
     avatar: playerData2.avatar,
     race: playerData2.race,
-    bot: false
+    bot: false,
+    donate: false
 };
 var seed = getRandomInt(0, 10000);
 var blue = getRandomInt(0, 2);

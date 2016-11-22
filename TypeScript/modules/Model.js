@@ -35,7 +35,8 @@ function getDefaultPlayerData(playerID) {
         race: 0,
         star: 0,
         bot: false,
-        startedMatch: null
+        startedMatch: null,
+        donateExpiredDateTime: 0
     };
 }
 exports.getDefaultPlayerData = getDefaultPlayerData;
@@ -47,7 +48,8 @@ function getBotPlayerData(displayName, avatar, race) {
         race: race,
         star: 0,
         bot: true,
-        startedMatch: null
+        startedMatch: null,
+        donateExpiredDateTime: 0
     };
 }
 exports.getBotPlayerData = getBotPlayerData;
