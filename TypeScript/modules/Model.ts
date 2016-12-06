@@ -75,8 +75,7 @@ export interface MatchInfo
 
 export interface GameData
 {
-	competitionEnd: number,
-	seasonEnd: number,
+	version: number,
 }
 
 
