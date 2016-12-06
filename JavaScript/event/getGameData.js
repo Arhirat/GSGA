@@ -2,8 +2,5 @@
 require("SparkHelper")
 
 
-//var gameData = getGameData(); 
-var gameData = {
-    version: 1
-};
+var gameData = getGameData();
 setScriptData("data", gameData);
